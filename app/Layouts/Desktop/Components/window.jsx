@@ -147,7 +147,7 @@ export default forwardRef(function FancyWindow(props, ref) {
         <div>
           <Rnd
             ref={multiRef}
-            className={`bg-sleepless-50 dark:bg-sleepless-400 min-w-[500px] min-h-[300px] border ${
+            className={`bg-sleepless-50 dark:bg-sleepless-400  border ${
               maximized ? "rounded-xl" : "rounded-none"
             } ${
               animated ? "transition-none" : "transition-all"
@@ -191,7 +191,7 @@ export default forwardRef(function FancyWindow(props, ref) {
                   {title}
                 </p>
               </div>
-              <div className="w-full h-full pt-[150px]">{children}</div>
+              <div className="w-full h-full ">{children}</div>
             </div>
           </Rnd>
         </div>

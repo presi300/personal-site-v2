@@ -133,7 +133,7 @@ export default function DesktopLayout() {
       <Launcher
         active={definedWindows.includes(key) && true}
         focused={currentZ.includes(key)}
-        icon={"/icons/1.svg"}
+        icon={appObj[key - 1].icon}
         key={key}
         clickfunc={() => openWindow(key)}
       >

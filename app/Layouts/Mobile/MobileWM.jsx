@@ -8,6 +8,7 @@ import TopBar from "../Desktop/Components/topbar";
 import { RxDotsHorizontal } from "react-icons/rx";
 import AppGrid from "@/app/ActualApps/AppGrid";
 import { motion, AnimatePresence } from "framer-motion";
+import { appObj } from "@/app/Apps/AppMapper";
 
 export default function MobileLayout({}) {
   const [activeApp, setActiveApp] = useState(0);
@@ -18,7 +19,7 @@ export default function MobileLayout({}) {
       <Launcher
         active={key === activeApp && true}
         focused={false}
-        icon={"/icons/1.svg"}
+        icon={appObj[key - 1].icon}
         key={key}
         clickfunc={() => {
           setActiveApp(key);

@@ -9,7 +9,7 @@ export default function AppMapper({ appId, spawn, mobile = false }) {
   if (spawn && appId) {
     return (
       <div
-        className={`absolute top-0 bottom-0 right-0 left-0 ${
+        className={`absolute top-0 bottom-0 right-0 left-0  ${
           mobile ? "pt-[30px]" : "pt-[50px]"
         }`}
       >
@@ -30,8 +30,8 @@ export default function AppMapper({ appId, spawn, mobile = false }) {
 }
 
 export const appObj = [
-  { id: 1, appName: "Settings", minW: 600, minH: 400 },
-  { id: 2, appName: "Test", minW: 500, minH: 300 },
-  { id: 3, appName: "Test2", minW: 500, minH: 300 },
-  { id: 4, appName: "Test3", minW: 500, minH: 300 },
+  { id: 1, appName: "Settings", icon: "icons/3.svg", minW: 600, minH: 400 },
+  { id: 2, appName: "Blog", icon: "icons/2.svg", minW: 600, minH: 400 },
+  { id: 3, appName: "Test2", icon: "icons/1.svg", minW: 500, minH: 300 },
+  { id: 4, appName: "Test3", icon: "icons/1.svg", minW: 500, minH: 300 },
 ];
