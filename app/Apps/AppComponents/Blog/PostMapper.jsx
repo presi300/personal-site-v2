@@ -4,7 +4,7 @@ import matter from "gray-matter";
 import { join } from "path";
 // Thanks https://github.com/ImRayy for this :)
 
-const path = join(process.cwd(), "./app/Apps/AppComponents/Blog/Posts");
+const path = join(process.cwd(), "/public/Posts");
 const imgPath = join(process.cwd(), "/public/Images/PostImages");
 
 export default async function PostMapper() {
