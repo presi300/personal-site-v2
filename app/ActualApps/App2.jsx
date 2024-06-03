@@ -14,6 +14,8 @@ export default function TestApp2({}) {
       {posts &&
         posts.map(({ frontmatter, slug, content, image, key }) => (
           <div key={key} className="w-full max-w-[900px] ">
+            <button onClick={() => console.log(image, content)}>TEST</button>
+
             <Post key={key} frontImage={image} title={slug}>
               {content}
             </Post>
