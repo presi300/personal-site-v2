@@ -11,7 +11,6 @@ export default function TestApp2({}) {
 
   return (
     <div className=" w-full h-full flex-col flex transition-colors items-center overflow-y-scroll justify-start bg-sleepless-50 dark:bg-sleepless-400">
-      <button onClick={() => console.log(process.cwd())}>TEST</button>
       {posts &&
         posts.map(({ frontmatter, slug, content, image, key }) => (
           <div key={key} className="w-full max-w-[900px] ">
