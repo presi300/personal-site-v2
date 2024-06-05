@@ -4,9 +4,9 @@ import matter from "gray-matter";
 import { join } from "path";
 // Thanks https://github.com/ImRayy for this :)
 
-const path = join(process.cwd(), "Posts");
+const path = join(process.cwd(), "/public/Posts");
 
-const imgPath = join(process.cwd() + "Images/PostImages");
+const imgPath = join(process.cwd() + "/public/Images/PostImages");
 
 export default async function PostMapper() {
   const files = readdirSync(path);
