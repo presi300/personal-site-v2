@@ -5,9 +5,9 @@ import { join } from "path";
 import { SanityClient } from "@/app/Sanity/client";
 // Thanks https://github.com/ImRayy for this :)
 
-const path = join(process.cwd(), "/blog/posts");
+const path = join(process.cwd(), "/public/blog/posts");
 
-const imgPath = join(process.cwd() + "/blog/postImages");
+const imgPath = join(process.cwd() + "/public/blog/postImages");
 
 export default async function PostMapper() {
   const files = readdirSync(path);
