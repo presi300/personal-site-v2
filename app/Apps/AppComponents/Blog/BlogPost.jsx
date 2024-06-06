@@ -5,6 +5,7 @@ import remarkGfm from "remark-gfm";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import { SanityPostMapper } from "./PostMapper";
 
 import "./posts.css";
 
@@ -16,7 +17,7 @@ export default function Post({
   children,
 }) {
   const [watched, isWatcher] = useState(false);
-
+  SanityPostMapper();
   return (
     <div className="w-full h-auto ">
       <div

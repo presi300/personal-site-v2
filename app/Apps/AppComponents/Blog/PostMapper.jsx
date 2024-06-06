@@ -2,11 +2,12 @@
 import { readdirSync, readFileSync } from "fs";
 import matter from "gray-matter";
 import { join } from "path";
+import { SanityClient } from "@/app/Sanity/client";
 // Thanks https://github.com/ImRayy for this :)
 
-const path = join(process.cwd(), "/public/Posts");
+const path = join(process.cwd(), "/Posts");
 
-const imgPath = join(process.cwd() + "/public/Images/PostImages");
+const imgPath = join(process.cwd() + "/Images/PostImages");
 
 export default async function PostMapper() {
   const files = readdirSync(path);
@@ -23,5 +24,14 @@ export default async function PostMapper() {
     };
   });
 
+  return posts;
+}
+
+export async function SanityPostMapper() {
+  const posts = await SanityClient.fetch(`*[_type == "document"]`);
+  const blog = posts.map((post) => {
+    const title = post.title;
+    return title;
+  });
   return posts;
 }
