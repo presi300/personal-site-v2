@@ -34,6 +34,7 @@ export default function Home({ size }) {
         }}
         className="dark:bg-light-wallpaper bg-dark-wallpaper"
       >
+        {/* I am fully aware that there is a better way to do this and I'm too lazy to change it :) */}
         <AnimatePresence>
           {layout && (
             <motion.div

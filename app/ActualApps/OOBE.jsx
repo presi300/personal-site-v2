@@ -28,11 +28,17 @@ export default function OOBE() {
   );
 
   const skipbtn = (
+    <button className="text-sleepless-100 " onClick={() => setOobeState(true)}>
+      Skip onboarding?
+    </button>
+  );
+
+  const finishbtn = (
     <button
-      className="bg-gray-300 p-3 rounded-xl shadow-sm"
+      className="dark:border-sleepless-50 border-sleepless-300 border-2 p-2 rounded-full"
       onClick={() => setOobeState(true)}
     >
-      Skip onboarding?
+      Begin!
     </button>
   );
   return (
@@ -46,6 +52,7 @@ export default function OOBE() {
         skipbtn={skipbtn}
         prevbtn={prevbtn}
         nextbtn={nextbtn}
+        finishbtn={finishbtn}
         id={id}
       ></OobePages>
     </motion.div>

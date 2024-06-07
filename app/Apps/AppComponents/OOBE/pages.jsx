@@ -1,7 +1,13 @@
 import React from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
-export default function OobePages({ id, nextbtn, prevbtn, skipbtn }) {
+export default function OobePages({
+  id,
+  nextbtn,
+  prevbtn,
+  skipbtn,
+  finishbtn,
+}) {
   function Page1() {
     if (id === 1) {
       return (
@@ -108,9 +114,13 @@ export default function OobePages({ id, nextbtn, prevbtn, skipbtn }) {
         <Page4></Page4>
       </motion.div>
 
-      <div className="flex gap-4">
-        {id > 1 && <div>{prevbtn}</div>}
-        {nextbtn}
+      <div className="fixed flex flex-col gap-12 bottom-16 justify-center items-center">
+        <div className="flex gap-12 absolute bottom-20">
+          {id > 1 && <div>{prevbtn}</div>}
+          {id < 4 && <div>{nextbtn}</div>}
+        </div>
+        {id === 1 && <div>{skipbtn}</div>}
+        {id === 4 && <div>{finishbtn}</div>}
       </div>
     </div>
   );
