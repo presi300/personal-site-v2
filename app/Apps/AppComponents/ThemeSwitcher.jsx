@@ -36,11 +36,11 @@ const ThemeSwitcher = ({
   }, []);
 
   return (
-    <div style={{ maxHeight: "600px", height: `270px` }}>
+    <div style={{ maxHeight: "400px", height: `270px` }}>
       <div
         style={{
           maxHeight: "600px",
-          maxWidth: "700px",
+          maxWidth: "350px",
           minWidth: "300px",
           width: `${IMGWidth}vw`,
           height: `${IMGHeight}vh`,

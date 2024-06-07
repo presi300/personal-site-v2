@@ -43,7 +43,8 @@ export default forwardRef(function FancyWindow(props, ref) {
         // Maximize window
         rndRef.current.updateSize({
           width: window.innerWidth,
-          height: window.innerHeight,
+          // innerHeight - 30, because the top bar is 30px wide
+          height: window.innerHeight - 30,
         });
         rndRef.current.updatePosition({
           x: 0,
@@ -123,7 +124,7 @@ export default forwardRef(function FancyWindow(props, ref) {
       });
       ref.current.updateSize({
         width: window.innerWidth / 2,
-        height: window.innerHeight,
+        height: window.innerHeight - 30,
       });
       maximizedHandler(!maximized);
     }
@@ -135,7 +136,7 @@ export default forwardRef(function FancyWindow(props, ref) {
       });
       ref.current.updateSize({
         width: window.innerWidth / 2,
-        height: window.innerHeight,
+        height: window.innerHeight - 30,
       });
       maximizedHandler(!maximized);
     }
@@ -151,7 +152,7 @@ export default forwardRef(function FancyWindow(props, ref) {
               maximized ? "rounded-xl" : "rounded-none"
             } ${
               animated ? "transition-none" : "transition-all"
-            } border-sleepless-75 dark:border-sleepless-200  overflow-hidden`}
+            } border-sleepless-75 dark:border-sleepless-200 overflow-hidden`}
             dragHandleClassName="titlebar"
             default={{ x: spawnX, y: spawnY }}
             /* onDragStop={() => SnapshotState()}
