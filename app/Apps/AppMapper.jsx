@@ -32,6 +32,6 @@ export default function AppMapper({ appId, spawn, mobile = false }) {
 export const appObj = [
   { id: 1, appName: "Settings", icon: "icons/3.svg", minW: 600, minH: 400 },
   { id: 2, appName: "Blog", icon: "icons/2.svg", minW: 600, minH: 400 },
-  { id: 3, appName: "About me", icon: "icons/1.svg", minW: 500, minH: 500 },
+  { id: 3, appName: "About me", icon: "icons/4.svg", minW: 500, minH: 500 },
   { id: 4, appName: "Test3", icon: "icons/1.svg", minW: 500, minH: 300 },
 ];

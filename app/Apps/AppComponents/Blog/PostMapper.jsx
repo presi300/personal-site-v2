@@ -27,11 +27,11 @@ export default async function PostMapper() {
   return posts;
 }
 
-export async function SanityPostMapper() {
-  const posts = await SanityClient.fetch(`*[_type == "document"]`);
-  const blog = posts.map((post) => {
-    const title = post.title;
-    return title;
-  });
-  return posts;
-}
+// export async function SanityPostMapper() {
+//   const posts = await SanityClient.fetch(`*[_type == "document"]`);
+//   const blog = posts.map((post) => {
+//     const title = post.title;
+//     return title;
+//   });
+//   return posts;
+// }

@@ -24,7 +24,7 @@ export default function Post({
       >
         <img
           className="hidden sm:block max-w-[200px] rounded-md shadow-lg dark:shadow-none shadow-sleepless-100"
-          src={`/Images/PostImages/${frontImage}`}
+          src={`/blog/PostImages/${frontImage}`}
         ></img>
         <h1 className="mainTitle  text-start">{title}</h1>
         <p className="text-end">

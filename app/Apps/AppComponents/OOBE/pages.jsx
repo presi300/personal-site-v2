@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import ThemeSwitcher from "../ThemeSwitcher";
 
 export default function OobePages({
   id,
@@ -26,12 +27,11 @@ export default function OobePages({
     if (id === 2) {
       return (
         <div className="flex flex-col items-center">
-          <img
-            className="w-[150px] rounded-md shadow-md"
-            src="Images/logo.png"
-          ></img>
-          <h1 className="pb-2">Welcome to Presi300.com!</h1>
-          <h2 className="py-0">It's a... website</h2>
+          <h1 className="pb-2">Choose your theme</h1>
+          <ThemeSwitcher></ThemeSwitcher>
+          <h2 className="py-0">
+            You can always change it back in the settings!
+          </h2>
         </div>
       );
     }
@@ -40,11 +40,13 @@ export default function OobePages({
     if (id === 3) {
       return (
         <div className="flex flex-col items-center">
-          <img
-            className="w-[150px] rounded-md shadow-md"
-            src="Images/logo.png"
-          ></img>
-          <h1 className="pb-2">Welcome to Presi300.com!</h1>
+          <h1 className="pb-2">This site works a little differently...</h1>
+          <video
+            src="Videos/PS-light.mp4"
+            className="w-[400px] border-r-4 border-black border-l-4 rounded-lg"
+            autoPlay={true}
+            loop={true}
+          ></video>
           <h2 className="py-0">It's a... website</h2>
         </div>
       );
@@ -74,7 +76,7 @@ export default function OobePages({
     },
   };
   return (
-    <div className="fixed w-screen h-screen dark:bg-sleepless-400 bg-sleepless-50 z-50 flex items-center justify-center flex-col">
+    <div className="fixed w-screen h-screen dark:bg-sleepless-400 bg-sleepless-50 z-50 flex items-center sm:justify-center pt-32 sm:pt-0 flex-col">
       <motion.div
         variants={variants}
         animate={(id === 1 && "visible") || "exit"}

@@ -2,7 +2,7 @@ import React from "react";
 import Post from "../Apps/AppComponents/Blog/BlogPost";
 import PostMapper from "../Apps/AppComponents/Blog/PostMapper";
 import { useEffect, useState } from "react";
-import { SanityPostMapper } from "../Apps/AppComponents/Blog/PostMapper";
+// import { SanityPostMapper } from "../Apps/AppComponents/Blog/PostMapper";
 export default function TestApp2({}) {
   const [posts, getPosts] = useState(null);
   useEffect(() => {
@@ -10,10 +10,7 @@ export default function TestApp2({}) {
   }, []);
 
   return (
-    <div className=" w-full h-full flex-col flex transition-colors items-center overflow-y-scroll justify-start bg-sleepless-50 dark:bg-sleepless-400">
-      <button onClick={() => console.log(PostMapper())}>sfdsf</button>
-
-      <h1>*Technical difficulties with vercel*</h1>
+    <div className=" w-full h-full flex-col flex transition-colors mt-1 items-center overflow-y-scroll justify-start bg-sleepless-50 dark:bg-sleepless-400">
       {posts &&
         posts.map(({ frontmatter, slug, content, image, key }) => (
           <div key={key} className="w-full max-w-[900px] ">

@@ -12,12 +12,12 @@ export default function TestApp3({}) {
   return (
     <div className="w-full h-full  flex-col flex items-center justify-center transition-colors  bg-sleepless-50 dark:bg-sleepless-400 px-8 pt-8">
       <div className="h-full w-full max-w-[700px] flex justify-start flex-col ">
-        <div className="w-full min-h-[100px] bg-sleepless-50 dark:bg-sleepless-400 border-b dark:border-sleepless-50 border-black">
+        <div className="w-full pb-4  h-[170px] bg-sleepless-50 dark:bg-sleepless-400 border-b dark:border-sleepless-50 border-black">
           <p className="text-start text-3xl font-bold ">Preslav Valchev</p>
           <p className="text-xl">
             Web developer/designer and linux enthusiast{" "}
           </p>
-          <div className="flex gap-4">
+          <div className="flex gap-4 mt-2">
             <a target="_blank" href="https://t.me/LinuxChats">
               <FaTelegramPlane size={25}></FaTelegramPlane>
             </a>
