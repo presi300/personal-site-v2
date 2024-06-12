@@ -13,6 +13,10 @@ module.exports = {
         "dark-wallpaper": "url('/Images/wallpaper-light.jpg')",
         "light-wallpaper": "url('/Images/wallpaper.jpg')",
       },
+      screens: {
+        short: { raw: "(max-height: 800px)" },
+        // => @media (min-height: 800px) { ... }
+      },
       colors: {
         sleepless: {
           50: "#e8e8e8",
