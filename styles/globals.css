@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+.noScroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.noScroll {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.mainTitle {
+  @apply text-lg sm:text-3xl font-normal py-0;
+}
+
+h1 {
+  @apply text-3xl text-center font-bold py-8;
+}
+
+h2 {
+  @apply text-xl text-center font-semibold py-6;
+}
+
+h3 {
+  @apply text-lg px-4 font-semibold py-4;
+}
+
+p {
+}
+
+blockquote {
+  @apply text-lg bg-sleepless-75 py-4 mx-4 my-6 rounded-r-md border-l-8 border-slate-500 border-opacity-25    bg-opacity-40;
+}
+
+pre {
+  @apply bg-sleepless-300 text-white mx-4 py-4 px-3 my-6 rounded-md border;
+}
+
+ul {
+  @apply decoration-slice decoration-black text-lg;
+  list-style: inside;
+}
+
+li {
+  @apply decoration-black pl-5 my-2;
+}
+
+img {
+  @apply max-h-[500px];
+}
