@@ -5,7 +5,6 @@ import { useState, useRef, createRef, forwardRef } from "react";
 import { children } from "react";
 import useMergedRef from "@react-hook/merged-ref";
 import { FiMaximize } from "react-icons/fi";
-import { motion, AnimatePresence } from "framer-motion";
 import NavButton from "./navButton";
 
 export default forwardRef(function FancyWindow(props, ref) {
@@ -19,8 +18,9 @@ export default forwardRef(function FancyWindow(props, ref) {
     spawnY,
     minW = 500,
     minH = 300,
-    accent = "#FFFFFF",
+    accent,
     clickFunc,
+    focused,
     title = "Lorem Ipsum",
   } = props;
 
@@ -149,10 +149,12 @@ export default forwardRef(function FancyWindow(props, ref) {
           <Rnd
             ref={multiRef}
             className={`bg-sleepless-50 dark:bg-sleepless-400  border ${
-              maximized ? "rounded-xl" : "rounded-none"
+              maximized ? " rounded-xl" : "rounded-none "
             } ${
               animated ? "transition-none" : "transition-all"
-            } border-sleepless-75 dark:border-sleepless-200 overflow-hidden`}
+            } overflow-hidden ${
+              focused ? "windowShadow " : "shadow-none "
+            } shadow-sleepless-200`}
             dragHandleClassName="titlebar"
             default={{ x: spawnX, y: spawnY }}
             /* onDragStop={() => SnapshotState()}
@@ -164,11 +166,15 @@ export default forwardRef(function FancyWindow(props, ref) {
             onDragStop={() => {
               preventOutOfBoundsDrag();
             }}
+            // This bs is necessary for transition animations
             onResizeStart={() => animatedHandler(true)}
             onResizeStop={() => animatedHandler(false)}
             minHeight={minH}
             minWidth={minW}
-            style={{ zIndex: z }}
+            style={{
+              zIndex: z,
+              borderColor: focused ? accent + "AA" : "#3e404266",
+            }}
             onClick={clickFunc}
           >
             <div ref={winRef} className="w-full h-full ">
@@ -178,14 +184,17 @@ export default forwardRef(function FancyWindow(props, ref) {
                 className=" absolute flex h-[50px] items-center top-0 gap-3 pl-4 "
               >
                 {closebtn}
-                <NavButton color={"#4DAE51"} clickfunc={() => updateSize(true)}>
+                <NavButton color="#4DAE51" clickfunc={() => updateSize(true)}>
                   <FiMaximize size={14} />
                 </NavButton>
               </div>
               {/* Titlebar */}
               <div
-                className="w-full h-[50px] absolute flex items-center justify-center top-0 titlebar text-3xl text-center dark:bg-gray-700 bg-gray-300 shadow-sm shadow-sleepless-300"
-                style={{ zIndex: z }}
+                className="w-full h-[50px] absolute flex items-center justify-center top-0 titlebar text-3xl text-center shadow-sm shadow-sleepless-300  transition-colors"
+                style={{
+                  zIndex: z,
+                  backgroundColor: focused ? accent + "55" : accent + "30",
+                }}
                 onDoubleClick={() => updateSize(true)}
               >
                 <p className="text-[18px] text-center text-sleepless-300 dark:text-sleepless-75 text-opacity-50">

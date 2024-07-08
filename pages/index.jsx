@@ -7,10 +7,16 @@ import { IoPhonePortraitOutline } from "react-icons/io5";
 import { useWindowSize } from "@uidotdev/usehooks";
 import OOBE from "../components/Apps/ActualApps/OOBE";
 import useLocalStorage from "@/components/hooks/useLocalStorage";
+import { atom, useAtom } from "jotai";
+import { selectedAccent } from "@/components/Atoms";
+
 // useLocalStorage from @uidotdev/usehooks is bugged
 
 export default function Home({ size }) {
+  const accent = useAtom(selectedAccent);
+
   const [oobeState, setOobeState] = useLocalStorage("oobeState", false);
+
   size = useWindowSize();
   const [layout, layoutSetter] = useState(true);
   useEffect(() => {
@@ -43,7 +49,7 @@ export default function Home({ size }) {
               className="fixed top-0 bottom-0 left-0 right-0"
               transition={{ type: "tween", duration: 0.4 }}
             >
-              <MobileLayout></MobileLayout>
+              <MobileLayout accent={accent[0]}></MobileLayout>
             </motion.div>
           )}
         </AnimatePresence>
@@ -56,7 +62,7 @@ export default function Home({ size }) {
               transition={{ type: "tween", duration: 0.4 }}
               className="fixed top-0 bottom-0 left-0 right-0"
             >
-              <DesktopLayout></DesktopLayout>
+              <DesktopLayout accent={accent[0]}></DesktopLayout>
             </motion.div>
           )}
         </AnimatePresence>

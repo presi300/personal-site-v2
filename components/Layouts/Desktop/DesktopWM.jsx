@@ -8,6 +8,8 @@ import Launcher from "./Components/launcher";
 import TopBar from "./Components/topbar";
 import NavButton from "./Components/navButton";
 import { appObj } from "@/components/Apps/AppMapper";
+import useCursorPosition from "@/components/hooks/useCursorPosition";
+
 function moveToFirst(arr, targetElement) {
   const index = arr.indexOf(targetElement);
   // Check if element exists in the array
@@ -17,7 +19,20 @@ function moveToFirst(arr, targetElement) {
   // Return original array if element not found
   return arr;
 }
-export default function DesktopLayout() {
+export default function DesktopLayout({ accent }) {
+  const { x, y } = useCursorPosition();
+  const [isBottomBarUp, isBottomBarUpHandler] = useState(false);
+
+  useEffect(() => {
+    if (y >= window.innerHeight - 30 && !isBottomBarUp) {
+      console.log("TEST");
+      isBottomBarUpHandler(true);
+    } else if (y < window.innerHeight - 100 && isBottomBarUp) {
+      isBottomBarUpHandler(false);
+      console.log("Pootis");
+    }
+  }, [y]);
+
   // Array with refs to all windows
 
   const [ref, refHandler] = useState([]);
@@ -99,11 +114,12 @@ export default function DesktopLayout() {
           spawnX={window.innerWidth / 2 - 400 + key * 10}
           spawnY={key * 14 + window.innerHeight / 6}
           closebtn={closeBtn(id, key)}
-          accent={"#553FFF22"}
+          accent={accent}
           minW={appObj[id - 1].minW}
           minH={appObj[id - 1].minH}
           title={appObj[id - 1].appName}
           ref={ref[key]}
+          focused={id === currentZ[0] ? true : false}
           clickFunc={() => {
             Focus(id);
           }}
@@ -143,15 +159,29 @@ export default function DesktopLayout() {
 
   return (
     <div className="w-screen h-screen overflow-auto">
+      <div
+        className="absolute bottom-[4px] flex w-full  justify-center gap-4"
+        style={{ zIndex: isBottomBarUp ? 200 : 0 }}
+      >
+        <div
+          style={{ borderColor: accent + "60" }}
+          className="bg-sleepless-50  rounded-2xl bg-opacity-50 border dark:bg-sleepless-300 border-sleepless-75 border-opacity-50 backdrop-blur-xl"
+        >
+          <div
+            className="w-full h-full flex gap-5 p-1.5 rounded-2xl"
+            style={{ backgroundColor: accent + "15" }}
+          >
+            <CreateLaunchers></CreateLaunchers>
+          </div>
+        </div>
+      </div>
       <div className="" ref={boundingBox}>
         <AnimatePresence>{spawnWindows(definedWindows)}</AnimatePresence>
       </div>
       <div className="fixed bottom-0 w-screen flex gap-2">
-        <TopBar></TopBar>
-        <div className="absolute bottom-[4px] flex w-full  justify-center gap-4">
-          <div className="bg-sleepless-50 flex gap-5 p-1.5 rounded-2xl bg-opacity-50 border dark:bg-sleepless-300 border-sleepless-75 border-opacity-50 backdrop-blur-xl">
-            <CreateLaunchers></CreateLaunchers>
-          </div>
+        <TopBar accent={accent}></TopBar>
+        <div className="fixed bottom-12 w-[100px] h-[50px] bg-red-300 text-black">
+          {currentZ[0]}
         </div>
       </div>
     </div>

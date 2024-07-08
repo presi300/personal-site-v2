@@ -57,3 +57,7 @@ li {
 img {
   @apply max-h-[500px];
 }
+
+.windowShadow {
+  box-shadow: 1px 1px 38px -9px rgba(0, 0, 0, 0.85);
+}

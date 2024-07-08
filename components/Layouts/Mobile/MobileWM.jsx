@@ -9,7 +9,7 @@ import { RxDotsHorizontal } from "react-icons/rx";
 import { motion, AnimatePresence } from "framer-motion";
 import AppGrid from "@/components/Apps/ActualApps/AppGrid";
 
-export default function MobileLayout({}) {
+export default function MobileLayout({ accent }) {
   const [activeApp, setActiveApp] = useState(0);
   const [grid, gridActivate] = useState(false);
 
@@ -29,7 +29,7 @@ export default function MobileLayout({}) {
   }
   return (
     <div className="bg-opacity-0 w-screen h-screen overflow-hidden">
-      <TopBar></TopBar>
+      <TopBar accent={accent}></TopBar>
       <AnimatePresence>
         {grid && (
           <motion.div
@@ -39,14 +39,14 @@ export default function MobileLayout({}) {
             exit={{ y: 500, opacity: 0 }}
             className="bg-opacity-40 backdrop-blur-lg bg-sleepless-50 w-screen h-screen absolute z-10"
           >
-            <AppGrid>
+            <AppGrid accent={accent}>
               <CreateLaunchers></CreateLaunchers>
             </AppGrid>
           </motion.div>
         )}
       </AnimatePresence>
 
-      <SideBar>
+      <SideBar accent={accent}>
         <CreateLaunchers></CreateLaunchers>
       </SideBar>
 
@@ -62,9 +62,14 @@ export default function MobileLayout({}) {
         <div className="w-full flex bottom-20 absolute justify-center">
           <button
             onClick={() => gridActivate(true)}
-            className="bg-sleepless-50 w-[50px] h-[50px] rounded-full dark:bg-sleepless-400 flex justify-center items-center bg-opacity-50 backdrop-blur-xl"
+            className="bg-sleepless-50 w-[50px] h-[50px] rounded-full dark:bg-sleepless-400 bg-opacity-50 backdrop-blur-xl"
           >
-            <RxDotsHorizontal size={30}></RxDotsHorizontal>
+            <div
+              className="w-full h-full rounded-full flex justify-center items-center"
+              style={{ backgroundColor: accent + "15" }}
+            >
+              <RxDotsHorizontal size={30}></RxDotsHorizontal>
+            </div>
           </button>
         </div>
         <AppMapper spawn={true} mobile={true} appId={activeApp}></AppMapper>

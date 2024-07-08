@@ -11,6 +11,7 @@ export default function NavBar({ homefunc, active }) {
             animate={{ y: 0 }}
             exit={{ y: 70 }}
             onClick={homefunc}
+            className="bg-sleepless-75 p-1 rounded-full bg-opacity-30 backdrop-blur-lg"
           >
             <FaRegCircle size={30} />
           </motion.button>
