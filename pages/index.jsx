@@ -4,20 +4,21 @@ import MobileLayout from "../components/Layouts/Mobile/MobileWM";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiMonitor } from "react-icons/fi";
 import { IoPhonePortraitOutline } from "react-icons/io5";
-import { useWindowSize } from "@uidotdev/usehooks";
+import useWindowSize from "@/components/hooks/useWindowSize";
 import OOBE from "../components/Apps/ActualApps/OOBE";
 import useLocalStorage from "@/components/hooks/useLocalStorage";
-import { atom, useAtom } from "jotai";
+import { useAtom } from "jotai";
 import { selectedAccent } from "@/components/Atoms";
 
 // useLocalStorage from @uidotdev/usehooks is bugged
 
 export default function Home({ size }) {
   const accent = useAtom(selectedAccent);
-
+  console.log(accent);
   const [oobeState, setOobeState] = useLocalStorage("oobeState", false);
+  const setAcc = useLocalStorage("AccColor");
+  size = useWindowSize(200);
 
-  size = useWindowSize();
   const [layout, layoutSetter] = useState(true);
   useEffect(() => {
     if (typeof window == undefined) {
@@ -49,7 +50,7 @@ export default function Home({ size }) {
               className="fixed top-0 bottom-0 left-0 right-0"
               transition={{ type: "tween", duration: 0.4 }}
             >
-              <MobileLayout accent={accent[0]}></MobileLayout>
+              <MobileLayout accent={accent[0].color}></MobileLayout>
             </motion.div>
           )}
         </AnimatePresence>
@@ -62,7 +63,7 @@ export default function Home({ size }) {
               transition={{ type: "tween", duration: 0.4 }}
               className="fixed top-0 bottom-0 left-0 right-0"
             >
-              <DesktopLayout accent={accent[0]}></DesktopLayout>
+              <DesktopLayout accent={accent[0].color}></DesktopLayout>
             </motion.div>
           )}
         </AnimatePresence>
@@ -101,6 +102,6 @@ export default function Home({ size }) {
       </div>
     );
   } else {
-    return <OOBE></OOBE>;
+    return <OOBE accent={accent[0].color}></OOBE>;
   }
 }

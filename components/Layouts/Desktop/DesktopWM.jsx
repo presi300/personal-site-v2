@@ -180,9 +180,6 @@ export default function DesktopLayout({ accent }) {
       </div>
       <div className="fixed bottom-0 w-screen flex gap-2">
         <TopBar accent={accent}></TopBar>
-        <div className="fixed bottom-12 w-[100px] h-[50px] bg-red-300 text-black">
-          {currentZ[0]}
-        </div>
       </div>
     </div>
   );

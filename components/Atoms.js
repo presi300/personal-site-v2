@@ -1,3 +1,7 @@
 import { atom } from "jotai";
+import { atomWithStorage } from "jotai/utils";
 
-export const selectedAccent = atom("#16191b");
+export const selectedAccent = atomWithStorage("AccColor", {
+  color: "#9fa1a2",
+  id: 8,
+});

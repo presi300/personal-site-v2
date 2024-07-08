@@ -5,7 +5,7 @@ import OobePages from "../AppComponents/OOBE/pages";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 
-export default function OOBE() {
+export default function OOBE({ accent }) {
   const [oobeState, setOobeState] = useLocalStorage("oobeState", false);
   const router = useRouter();
   const [id, idSetter] = useState(1);
@@ -46,7 +46,7 @@ export default function OOBE() {
       className="dark:border-sleepless-50 border-sleepless-300 border-2 p-2 rounded-full"
       onClick={() => {
         setOobeState(true);
-        router.reload;
+        router.reload();
       }}
     >
       Begin!
@@ -64,6 +64,7 @@ export default function OOBE() {
         prevbtn={prevbtn}
         nextbtn={nextbtn}
         finishbtn={finishbtn}
+        accent={accent}
         id={id}
       ></OobePages>
     </motion.div>

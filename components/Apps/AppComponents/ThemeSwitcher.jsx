@@ -9,8 +9,8 @@ import { useEffect } from "react";
 const ThemeSwitcher = ({
   IMG1 = "/Images/lightmode.png",
   IMG2 = "/Images/darkmode.png",
-  IMGWidth = 90,
-  IMGHeight = 30,
+  IMGWidth = 60,
+  IMGHeight = 40,
   IMGResX = 1920,
   IMGResY = 1080,
 }) => {
@@ -36,14 +36,17 @@ const ThemeSwitcher = ({
   }, []);
 
   return (
-    <div style={{ maxHeight: "400px", height: `270px` }}>
+    <div
+      style={{ maxHeight: "400px", height: `270px` }}
+      className="flex justify-center"
+    >
       <div
         style={{
           maxHeight: "600px",
           maxWidth: "600px",
           minWidth: "300px",
-          width: `${IMGWidth}vw`,
-          height: `${IMGHeight}vh`,
+          width: `${IMGWidth}%`,
+          height: `${IMGHeight}%`,
         }}
       >
         <div className="rounded-xl relative top-0 left-0">

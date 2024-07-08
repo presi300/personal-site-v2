@@ -1,7 +1,10 @@
 import { ThemeProvider } from "next-themes";
 import "../styles/globals.css";
+import { EventEmitter } from "events";
 
 import { Poppins } from "next/font/google";
+
+EventEmitter.defaultMaxListeners = 20;
 
 const poppins = Poppins({
   subsets: ["latin"],

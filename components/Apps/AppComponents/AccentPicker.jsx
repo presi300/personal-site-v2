@@ -1,12 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { selectedAccent } from "@/components/Atoms";
 import { useAtom } from "jotai";
+import useLocalStorage from "@/components/hooks/useLocalStorage";
 
-export default function AccentPicker({ spawn }) {
-  const [chosenAccent, setChosenAccent] = useAtom(selectedAccent);
-
-  const [selectedColor, setSelectedColor] = useState(7);
-
+export default function AccentPicker({}) {
   const accents = [
     { id: 1, color: "#F24336" },
     { id: 2, color: "#F48019" },
@@ -15,19 +12,21 @@ export default function AccentPicker({ spawn }) {
     { id: 5, color: "#B76BFF" },
     { id: 6, color: "#1C90FF" },
     { id: 7, color: "#16191b" },
+    { id: 8, color: "#9fa1a2" },
   ];
+  const [chosenAccent, setChosenAccent] = useAtom(selectedAccent);
+
   return (
     <div className="flex gap-3">
       {accents.map(({ id, color }) => (
         <button
           onClick={() => {
-            setChosenAccent(color);
-            setSelectedColor(id);
+            setChosenAccent({ color: color, id: id });
           }}
           key={id}
           className={`rounded-full w-[20px] h-[20px] ${
-            (selectedColor === id &&
-              "border-4 border-sleepless-100 border-opacity-200 dark:border-sleepless-100") ||
+            (chosenAccent.id === id &&
+              "border-4 border-white border-opacity-200 dark:border-white shadow-sm shadow-sleepless-200") ||
             "border border-sleepless-100"
           }`}
           style={{ background: color }}

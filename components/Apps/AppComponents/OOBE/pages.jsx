@@ -4,6 +4,7 @@ import ThemeSwitcher from "../ThemeSwitcher";
 import { useState } from "react";
 import { FaArrowRight } from "react-icons/fa6";
 import { FaArrowLeft } from "react-icons/fa6";
+import AccentPicker from "../AccentPicker";
 import { Children } from "react";
 
 export default function OobePages({
@@ -12,13 +13,14 @@ export default function OobePages({
   prevbtn,
   skipbtn,
   finishbtn,
+  accent,
   children,
 }) {
   const [selectedFreature, selectedFeatureHandler] = useState(1);
-
+  console.log("DINGUS", accent);
   function Page({ children }) {
     return (
-      <div className="flex flex-col w-full h-[60vh] justify-center items-center">
+      <div className="flex flex-col w-full h-[60vh]  justify-center items-center">
         {children}
       </div>
     );
@@ -100,8 +102,9 @@ export default function OobePages({
       return (
         <Page>
           <h1 className="pb-2">Choose your theme</h1>
-          <ThemeSwitcher></ThemeSwitcher>
-          <h2 className="py-0">
+          <ThemeSwitcher IMGWidth={70}></ThemeSwitcher>
+          <AccentPicker></AccentPicker>
+          <h2 className="py-6">
             You can always change it back in the settings!
           </h2>
         </Page>
@@ -178,11 +181,18 @@ export default function OobePages({
       transition: { duration: 0.2 }, // Adjust duration as desired
     },
   };
+
+  console.log("TEST");
   return (
     <div
-      className={`fixed w-screen h-screen bg-sleepless-50 dark:bg-sleepless-400 z-50 flex items-center ${id === 4 && "bg-dark-wallpaper dark:bg-light-wallpaper "}  flex-col `}
+      className={`fixed w-screen h-screen bg-sleepless-50 dark:bg-sleepless-400 z-50 flex items-center ${
+        id === 4 && "bg-dark-wallpaper dark:bg-light-wallpaper "
+      }  flex-col `}
     >
-      <div className="top-0 bottom-0 left-0 right-0 absolute backdrop-blur-xl pt-32">
+      <div
+        className="top-0 bottom-0 left-0 right-0 absolute backdrop-blur-xl pt-32"
+        style={{ backgroundColor: accent + "15" }}
+      >
         <motion.div
           variants={variants}
           animate={(id === 1 && "visible") || "exit"}
