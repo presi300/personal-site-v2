@@ -1,6 +1,7 @@
 import { ThemeProvider } from "next-themes";
 import "../styles/globals.css";
 import { EventEmitter } from "events";
+import Metadata from "@/components/Metadata";
 
 import { Poppins } from "next/font/google";
 
@@ -14,6 +15,7 @@ const poppins = Poppins({
 function MyApp({ Component, pageProps }) {
   return (
     <>
+      <Metadata></Metadata>
       <ThemeProvider attribute="class" defaultTheme="dark">
         <div className={`overflow-hidden ${poppins.className}`}>
           <Component {...pageProps} />
