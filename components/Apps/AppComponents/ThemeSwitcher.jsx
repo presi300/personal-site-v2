@@ -7,8 +7,8 @@ import { useEffect } from "react";
 
 // This entire element has been shamelessly cloned from upscayl.org
 const ThemeSwitcher = ({
-  IMG1 = "/Images/lightmode.png",
-  IMG2 = "/Images/darkmode.png",
+  IMG1 = "https://i.imgur.com/kk1oYs1.jpg",
+  IMG2 = "https://i.imgur.com/c42Pg59.png",
   IMGWidth = 60,
   IMGHeight = 40,
   IMGResX = 1920,

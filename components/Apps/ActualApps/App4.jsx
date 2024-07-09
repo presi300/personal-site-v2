@@ -1,8 +1,8 @@
 import { useState } from "react";
+import Button from "../AppComponents/Button";
 
 export default function TestApp4({}) {
   const [ifrKey, setIfrKey] = useState(1);
-
   return (
     <div className="w-full h-full flex flex-col items-center justify-center bg-sleepless-50 dark:bg-sleepless-400">
       <div>
@@ -21,13 +21,9 @@ export default function TestApp4({}) {
           scrolling="no"
         ></iframe>
       </div>
-
-      <button
-        onClick={() => setIfrKey(ifrKey + 1)}
-        className="p-2 rounded-full border border-sleepless-400 dark:border-sleepless-50 my-2 transition-transform hover:scale-110"
-      >
-        GIVE ME A CAT
-      </button>
+      <div className="mt-1">
+        <Button clickfunc={() => setIfrKey(ifrKey + 1)}>GIVE ME A CAT</Button>
+      </div>
     </div>
   );
 }

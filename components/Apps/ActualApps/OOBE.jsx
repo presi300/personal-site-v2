@@ -4,6 +4,7 @@ import useLocalStorage from "@/components/hooks/useLocalStorage";
 import OobePages from "../AppComponents/OOBE/pages";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
+import Button from "../AppComponents/Button";
 
 export default function OOBE({ accent }) {
   const [oobeState, setOobeState] = useLocalStorage("oobeState", false);
@@ -11,46 +12,37 @@ export default function OOBE({ accent }) {
   const [id, idSetter] = useState(1);
 
   const prevbtn = (
-    <button
-      onClick={() => idSetter(id - 1)}
-      className="rounded-full border-2 dark:border-sleepless-50 border-sleepless-300 p-2 mt-12 rotate-180"
-    >
-      <FaArrowRight></FaArrowRight>
-    </button>
+    <Button clickfunc={() => idSetter(id - 1)}>
+      <FaArrowRight className="rotate-180"></FaArrowRight>
+    </Button>
   );
 
   const nextbtn = (
-    <button
-      onClick={() => idSetter(id + 1)}
-      className="rounded-full border-2 dark:border-sleepless-50 border-sleepless-300 p-2 mt-12"
-    >
+    <Button clickfunc={() => idSetter(id + 1)}>
       <FaArrowRight></FaArrowRight>
-    </button>
+    </Button>
   );
 
   const skipbtn = (
-    <button
-      className="text-sleepless-100 "
-      onClick={() => {
+    <Button
+      clickfunc={() => {
         setOobeState(true);
-
         router.reload();
       }}
     >
       Skip onboarding?
-    </button>
+    </Button>
   );
 
   const finishbtn = (
-    <button
-      className="dark:border-sleepless-50 border-sleepless-300 border-2 p-2 rounded-full"
-      onClick={() => {
+    <Button
+      clickfunc={() => {
         setOobeState(true);
         router.reload();
       }}
     >
       Begin!
-    </button>
+    </Button>
   );
   return (
     <motion.div

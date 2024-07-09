@@ -10,8 +10,8 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        "dark-wallpaper": "url('/Images/wallpaper-light.jpg')",
-        "light-wallpaper": "url('/Images/wallpaper.jpg')",
+        "dark-wallpaper": "url('https://i.imgur.com/1ODuiZ6.jpg')",
+        "light-wallpaper": "url('https://i.imgur.com/sNRw8El.jpg')",
       },
       screens: {
         short: { raw: "(max-height: 800px)" },

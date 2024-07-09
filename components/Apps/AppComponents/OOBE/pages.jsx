@@ -28,14 +28,14 @@ export default function OobePages({
 
   const Features = [
     {
-      vSrc: "DesktopExperience-Light.mp4",
-      vSrcDark: "DesktopExperience-Dark.mp4",
+      vSrc: "https://i.imgur.com/1bdu78X.mp4",
+      vSrcDark: "https://i.imgur.com/9ExpC3f.mp4",
       text: "It's just like a desktop!",
       id: 1,
     },
     {
-      vSrc: "edgeSnappingReal-Light.mp4",
-      vSrcDark: "edgeSnappingReal-Dark.mp4",
+      vSrc: "https://i.imgur.com/cdZM5pH.mp4",
+      vSrcDark: "https://i.imgur.com/wits3ds.mp4",
       text: "Edge tiling!",
       id: 2,
     },
@@ -54,14 +54,14 @@ export default function OobePages({
             <FaArrowLeft />
           </button>
           <video
-            src={`Videos/${videoSrc}`}
+            src={`${videoSrc}`}
             className="max-w-[600px] dark:hidden w-[80vw]  min-w-[200px] border-black rounded-lg"
             autoPlay={true}
             loop={true}
             muted={true}
           ></video>
           <video
-            src={`Videos/${videoSrcDark}`}
+            src={`${videoSrcDark}`}
             className="max-w-[600px] hidden dark:block w-[80vw] min-w-[200px] border-black rounded-lg"
             autoPlay={true}
             muted={true}
@@ -92,7 +92,7 @@ export default function OobePages({
             src="Images/logo.png"
           ></img>
           <h1 className="pb-2 pt-0">Welcome to Presi300.com!</h1>
-          <h2 className="py-0">It&apos;s a... website</h2>
+          <h3 className="py-0">It&apos;s a... website</h3>
         </Page>
       );
     }
@@ -104,9 +104,9 @@ export default function OobePages({
           <h1 className="pb-2">Choose your theme</h1>
           <ThemeSwitcher IMGWidth={70}></ThemeSwitcher>
           <AccentPicker></AccentPicker>
-          <h2 className="py-6">
+          <h3 className="py-6 text-center">
             You can always change it back in the settings!
-          </h2>
+          </h3>
         </Page>
       );
     }
@@ -116,7 +116,7 @@ export default function OobePages({
       return (
         <Page>
           <h1 className="pt-0">This site works a little differently...</h1>
-          <h2 className="p-0 pb-2">Here are some of the highlights</h2>
+          <h3 className="p-0 pb-2">Here are some of the highlights</h3>
           <div className="flex  h-auto w-full items-center justify-center">
             {Features.map(({ vSrc, text, key, id, vSrcDark }, index) => (
               <div className="" key={index}>
@@ -182,7 +182,6 @@ export default function OobePages({
     },
   };
 
-  console.log("TEST");
   return (
     <div
       className={`fixed w-screen h-screen bg-sleepless-50 dark:bg-sleepless-400 z-50 flex items-center ${
