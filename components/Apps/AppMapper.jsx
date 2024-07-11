@@ -4,6 +4,7 @@ import TestApp2 from "./ActualApps/App2";
 import TestApp3 from "./ActualApps/App3";
 import TestApp4 from "./ActualApps/App4";
 import AppGrid from "./ActualApps/AppGrid";
+// import TerminalApp from "./ActualApps/Terminal";
 
 export default function AppMapper({ appId, spawn, mobile = false }) {
   if (spawn && appId) {
@@ -20,6 +21,7 @@ export default function AppMapper({ appId, spawn, mobile = false }) {
         {appId === 2 && <TestApp2></TestApp2>}
         {appId === 3 && <TestApp3></TestApp3>}
         {appId === 4 && <TestApp4></TestApp4>}
+        {/*  {appId === 5 && <TerminalApp></TerminalApp>} */}
         {/* Special apps */}
         {appId === 10 && <AppGrid></AppGrid>}
       </div>
@@ -40,4 +42,5 @@ export const appObj = [
     minW: 500,
     minH: 550,
   },
+  /* { id: 5, appName: "Terminal", icon: "icons/1.svg", minW: 600, minH: 400 }, */
 ];

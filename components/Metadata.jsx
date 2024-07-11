@@ -1,8 +1,11 @@
 import Head from "next/head";
 
-export default function Metadata({}) {
-  const title = "A website";
-  const content = "Yeah, it's a websie, I think";
+export default function Metadata({
+  title = "A website",
+  description = "Yeah, it's a websie, I think",
+  url = "https://presi300.com",
+  ogImage = "https://i.imgur.com/c42Pg59.png",
+}) {
   return (
     <Head>
       <title>{title}</title>
@@ -23,12 +26,17 @@ export default function Metadata({}) {
         sizes="16x16"
         href="/favicons/favicon-16x16.png"
       />
-      <meta name="description" content={content} key="description" />
+      <meta name="description" content={description} key="description" />
       <meta property="og:type" content="website" />
       <meta property="og:title" content={title} key="og-title" />
-      <meta property="og:description" content={content} key="og-description" />
+      <meta
+        property="og:description"
+        content={description}
+        key="og-description"
+      />
       <meta property="og:site_name" content="Presi300.com" />
-      <meta property="og:url" content="https://presi300.com" />
+      <meta property="og:url" content={url} />
+      <meta property="og:image" content={ogImage} key="og-image" />
     </Head>
   );
 }
