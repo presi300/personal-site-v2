@@ -15,7 +15,12 @@ const poppins = Poppins({
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      <Metadata></Metadata>
+      <Metadata
+        title="A website"
+        description="Yeah, it's a websie, I think"
+        url="https://presi300.com"
+        ogImage="https://i.imgur.com/c42Pg59.png"
+      ></Metadata>
       <ThemeProvider attribute="class" defaultTheme="dark">
         <div className={`overflow-hidden ${poppins.className}`}>
           <Component {...pageProps} />

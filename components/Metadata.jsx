@@ -1,11 +1,6 @@
 import Head from "next/head";
 
-export default function Metadata({
-  title = "A website",
-  description = "Yeah, it's a websie, I think",
-  url = "https://presi300.com",
-  ogImage = "https://i.imgur.com/c42Pg59.png",
-}) {
+export default function Metadata({ title, description, url, ogImage }) {
   return (
     <Head>
       <title>{title}</title>

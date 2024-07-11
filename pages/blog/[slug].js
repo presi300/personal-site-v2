@@ -11,30 +11,43 @@ export default function Page() {
   //For some unexplained reason, the post function returns -1 and then the actual index so I have to do this ridiculous check... what the fuck
   if (typeof window !== undefined && post !== -1 && TempPosts[post]) {
     return (
-      <div className="w-screen h-screen pt-[50px] overflow-y-hidden">
+      <>
         <Metadata
           url={TempPosts[post].Link}
           title={TempPosts[post].Title}
           description="TODO: Add post descriptions"
           ogImage={`/blog/postImages/${TempPosts[post].FrontImage}`}
         ></Metadata>
-        <BlogOSD Title={TempPosts[post].Title} postID={post}></BlogOSD>
-        <iframe className="w-screen h-full" src={TempPosts[post].Link}></iframe>
-      </div>
+        <div className="w-screen h-screen pt-[50px] overflow-y-hidden">
+          <BlogOSD Title={TempPosts[post].Title} postID={post}></BlogOSD>
+          <iframe
+            className="w-screen h-full"
+            src={TempPosts[post].Link}
+          ></iframe>
+        </div>
+      </>
     );
   } else {
     return (
-      <div className="w-screen h-screen flex flex-col items-center justify-center">
-        <h1>{`Oops... Post "${router.query.slug}" was not found.`}</h1>
-        <div className="flex flex-col sm:flex-row gap-3">
-          <Button>
-            Return to the <b>blog</b> page?
-          </Button>
-          <Button>
-            Return to the <b>main</b> page?
-          </Button>
+      <>
+        <Metadata
+          url="https://presi300.com/blog"
+          title="Post not found :/"
+          description=""
+          ogImage=""
+        ></Metadata>
+        <div className="w-screen h-screen flex flex-col items-center justify-center">
+          <h1>{`Oops... Post "${router.query.slug}" was not found.`}</h1>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <Button>
+              Return to the <b>blog</b> page?
+            </Button>
+            <Button>
+              Return to the <b>main</b> page?
+            </Button>
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 }

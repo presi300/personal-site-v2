@@ -2,6 +2,7 @@ import React from "react";
 import { TempPosts } from "@/components/Apps/AppComponents/Blog/PostsTemp";
 import { useState } from "react";
 import Post from "@/components/Apps/AppComponents/Blog/BlogPost";
+import Metadata from "@/components/Metadata";
 
 const Blog = ({}) => {
   const [search, setSearch] = useState("");
@@ -24,27 +25,35 @@ const Blog = ({}) => {
     );
   }
   return (
-    <div className="w-screen flex flex-col items-center gap-8 mt-16">
-      <SearchBar></SearchBar>
-      {TempPosts.map(({ Title, FrontImage, Link, ShortTitle, key }) => {
-        if (
-          Title.includes(search) ||
-          ShortTitle.includes(search) ||
-          search === ""
-        ) {
-          return (
-            <div key={key} className="w-full max-w-[900px] pt-1">
-              <Post
-                frontImage={FrontImage}
-                title={Title}
-                link={`/blog/${ShortTitle}`}
-                fullscreen={true}
-              ></Post>
-            </div>
-          );
-        }
-      })}
-    </div>
+    <>
+      <Metadata
+        url="https://presi300.com/blog"
+        title="A blog"
+        description="Presi300's amazing... incredible blog, yeah"
+        ogImage=""
+      ></Metadata>
+      <div className="w-screen flex flex-col items-center gap-8 mt-16">
+        <SearchBar></SearchBar>
+        {TempPosts.map(({ Title, FrontImage, Link, ShortTitle, key }) => {
+          if (
+            Title.includes(search) ||
+            ShortTitle.includes(search) ||
+            search === ""
+          ) {
+            return (
+              <div key={key} className="w-full max-w-[900px] pt-1">
+                <Post
+                  frontImage={FrontImage}
+                  title={Title}
+                  link={`/blog/${ShortTitle}`}
+                  fullscreen={true}
+                ></Post>
+              </div>
+            );
+          }
+        })}
+      </div>
+    </>
   );
 };
 
