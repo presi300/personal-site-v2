@@ -3,7 +3,7 @@ import { TempPosts } from "@/components/Apps/AppComponents/Blog/PostsTemp";
 import { useState } from "react";
 import Post from "@/components/Apps/AppComponents/Blog/BlogPost";
 
-const blog = ({}) => {
+const Blog = ({}) => {
   const [search, setSearch] = useState("");
   const [searchBarFocus, setSearchBarFocus] = useState(false);
   function SearchBar({}) {
@@ -48,4 +48,4 @@ const blog = ({}) => {
   );
 };
 
-export default blog;
+export default Blog;

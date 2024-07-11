@@ -25,7 +25,7 @@ export default function Page() {
   } else {
     return (
       <div className="w-screen h-screen flex flex-col items-center justify-center">
-        <h1>Oops... Post "{router.query.slug}" was not found.</h1>
+        <h1>{`Oops... Post "${router.query.slug}" was not found.`}</h1>
         <div className="flex flex-col sm:flex-row gap-3">
           <Button>
             Return to the <b>blog</b> page?
