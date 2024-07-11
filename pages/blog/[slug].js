@@ -9,11 +9,12 @@ export default function Page() {
   const post = TempPosts.map((e) => e.ShortTitle).indexOf(router.query.slug);
 
   //For some unexplained reason, the post function returns -1 and then the actual index so I have to do this ridiculous check... what the fuck
+
   if (typeof window !== undefined && post !== -1 && TempPosts[post]) {
     return (
       <>
         <Metadata
-          url={TempPosts[post].Link}
+          url={`https://presi300.com/blog/${TempPosts[post].ShortTitle}}`}
           title={TempPosts[post].Title}
           description="TODO: Add post descriptions"
           ogImage={`/blog/postImages/${TempPosts[post].FrontImage}`}
