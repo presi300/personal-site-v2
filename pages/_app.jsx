@@ -1,7 +1,6 @@
 import { ThemeProvider } from "next-themes";
 import "../styles/globals.css";
 import { EventEmitter } from "events";
-import Metadata from "@/components/Metadata";
 
 import { Poppins } from "next/font/google";
 
