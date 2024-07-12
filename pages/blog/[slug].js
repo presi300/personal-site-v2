@@ -10,15 +10,23 @@ export default function Page() {
 
   //For some unexplained reason, the post function returns -1 and then the actual index so I have to do this ridiculous check... what the fuck
 
-  if (typeof window !== undefined && post !== -1 && TempPosts[post]) {
-    return (
-      <>
-        <Metadata
-          url={`https://presi300.com/blog/${TempPosts[post].ShortTitle}}`}
-          title={TempPosts[post].Title}
-          description="TODO: Add post descriptions"
-          ogImage={`/blog/postImages/${TempPosts[post].FrontImage}`}
-        ></Metadata>
+  return (
+    <>
+      <Metadata
+        url={`${
+          TempPosts[post]
+            ? `https://presi300.com/blog/${TempPosts[post].ShortTitle} `
+            : "https://presi300.com/blog"
+        }`}
+        title={TempPosts[post] ? TempPosts[post].Title : "Post not found :/"}
+        description="TODO: Add post descriptions"
+        ogImage={
+          TempPosts[post]
+            ? `/blog/postImages/${TempPosts[post].FrontImage}`
+            : ""
+        }
+      ></Metadata>
+      {(typeof window !== undefined && post !== -1 && TempPosts[post] && (
         <div className="w-screen h-screen pt-[50px] overflow-y-hidden">
           <BlogOSD Title={TempPosts[post].Title} postID={post}></BlogOSD>
           <iframe
@@ -26,17 +34,7 @@ export default function Page() {
             src={TempPosts[post].Link}
           ></iframe>
         </div>
-      </>
-    );
-  } else {
-    return (
-      <>
-        <Metadata
-          url="https://presi300.com/blog"
-          title="Post not found :/"
-          description=""
-          ogImage=""
-        ></Metadata>
+      )) || (
         <div className="w-screen h-screen flex flex-col items-center justify-center">
           <h1>{`Oops... Post "${router.query.slug}" was not found.`}</h1>
           <div className="flex flex-col sm:flex-row gap-3">
@@ -48,7 +46,7 @@ export default function Page() {
             </Button>
           </div>
         </div>
-      </>
-    );
-  }
+      )}
+    </>
+  );
 }

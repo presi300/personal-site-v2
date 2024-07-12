@@ -22,6 +22,7 @@ export default function AppMapper({ appId, spawn, mobile = false }) {
         {appId === 3 && <TestApp3></TestApp3>}
         {appId === 4 && <TestApp4></TestApp4>}
         {/*  {appId === 5 && <TerminalApp></TerminalApp>} */}
+
         {/* Special apps */}
         {appId === 10 && <AppGrid></AppGrid>}
       </div>
