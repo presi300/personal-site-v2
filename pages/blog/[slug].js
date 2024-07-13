@@ -19,23 +19,24 @@ export default function Page() {
   const post = TempPosts.findIndex((e) => e.ShortTitle === slug);
   return (
     <div className="overflow-hidden">
-      <Metadata
-        url={`${
-          TempPosts[post]
-            ? `https://presi300.com/blog/${TempPosts[post].ShortTitle} `
-            : "https://presi300.com/blog"
-        }`}
-        title={TempPosts[post] ? TempPosts[post].Title : "Post not found :/"}
-        description="TODO: Add post descriptions"
-        ogImage={
-          TempPosts[post]
-            ? `/blog/postImages/${TempPosts[post].FrontImage}`
-            : ""
-        }
-      ></Metadata>
       {slug && (
         <>
-          {" "}
+          <Metadata
+            url={`${
+              TempPosts[post]
+                ? `https://presi300.com/blog/${TempPosts[post].ShortTitle} `
+                : "https://presi300.com/blog"
+            }`}
+            title={
+              TempPosts[post] ? TempPosts[post].Title : "Post not found :/"
+            }
+            description="TODO: Add post descriptions"
+            ogImage={
+              TempPosts[post]
+                ? `/blog/postImages/${TempPosts[post].FrontImage}`
+                : ""
+            }
+          ></Metadata>{" "}
           {(typeof window !== undefined && TempPosts[post] && (
             <div className="w-screen h-screen pt-[50px] overflow-hidden">
               <BlogOSD
