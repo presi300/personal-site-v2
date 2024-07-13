@@ -20,12 +20,18 @@ export default function Page() {
   if (router.isReady) {
     const slug = router.query.slug;
     const post = TempPosts.findIndex((e) => e.ShortTitle === slug);
+    const postTitle = TempPosts[post].Title
+      ? TempPosts[post].Title
+      : "Post not found :/";
+    const postLink = TempPosts[post].ShortTitle
+      ? `https://presi300.com/blog/${TempPosts[post].ShortTitle}`
+      : "https://presi300.com/blog";
 
     return (
       <div className="overflow-hidden">
         <Metadata
-          url={`https://presi300.com/blog/${TempPosts[post].ShortTitle}`}
-          title={TempPosts[post].Title}
+          url={postLink}
+          title={postTitle}
           description="TODO: Add post descriptions"
           ogImage={""}
         ></Metadata>
