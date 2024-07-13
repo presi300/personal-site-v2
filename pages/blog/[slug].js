@@ -16,27 +16,32 @@ export default function Page() {
     getSlug(router.query.slug);
   }, [router.isReady]); */
 
-  //   For some unexplained reason, router.query.slug returns undefined and then the actual slug, whenever it's called... So I have to check if slug actually exists before doing anything with it
+  //   Pages router is fcking slow, so I have to check if it's ready before doing anything
   if (router.isReady) {
     const slug = router.query.slug;
     const post = TempPosts.findIndex((e) => e.ShortTitle === slug);
-    console.log(post);
+    function url() {
+      if (TempPosts[post]) {
+        return `https://presi300.com/blog/${TempPosts[post].ShortTitle}`;
+      } else {
+        return "https://presi300.com/blog";
+      }
+    }
+    function title() {
+      if (TempPosts[post]) {
+        return TempPosts[post].Title;
+      } else {
+        return "Post not found :/";
+      }
+    }
     return (
       <div className="overflow-hidden">
         <Metadata
-          url={`${
-            TempPosts[post]
-              ? `https://presi300.com/blog/${TempPosts[post].ShortTitle} `
-              : "https://presi300.com/blog"
-          }`}
-          title={TempPosts[post] ? TempPosts[post].Title : "Post not found :/"}
+          url={url()}
+          title={title()}
           description="TODO: Add post descriptions"
-          ogImage={
-            TempPosts[post]
-              ? `/blog/postImages/${TempPosts[post].FrontImage}`
-              : ""
-          }
-        ></Metadata>{" "}
+          ogImage={""}
+        ></Metadata>
         {(typeof window !== undefined && TempPosts[post] && (
           <div className="w-screen h-screen pt-[50px] overflow-hidden">
             <BlogOSD
