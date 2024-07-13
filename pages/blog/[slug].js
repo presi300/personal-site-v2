@@ -6,13 +6,13 @@ import Metadata from "@/components/Metadata";
 
 export default function Page() {
   const router = useRouter();
-  const slug = router.query.slug;
   //   For some unexplained reason, router.query.slug returns undefined and then the actual slug, whenever it's called... So I have to check if slug actually exists before doing anything with it
-  if (slug) {
-    const post = TempPosts.findIndex((e) => e.ShortTitle === slug);
+
+  if (router.query.slug) {
+    var post = TempPosts.findIndex((e) => e.ShortTitle === router.query.slug);
 
     return (
-      <>
+      <div className="overflow-hidden">
         <Metadata
           url={`${
             TempPosts[post]
@@ -28,8 +28,11 @@ export default function Page() {
           }
         ></Metadata>
         {(typeof window !== undefined && TempPosts[post] && (
-          <div className="w-screen h-screen pt-[50px] overflow-y-hidden">
-            <BlogOSD Title={TempPosts[post].Title} postID={post}></BlogOSD>
+          <div className="w-screen h-screen pt-[50px] overflow-hidden">
+            <BlogOSD
+              Title={TempPosts[post].Title}
+              ShortTitle={TempPosts[post].ShortTitle}
+            ></BlogOSD>
             <iframe
               className="w-screen h-full"
               src={TempPosts[post].Link}
@@ -48,7 +51,7 @@ export default function Page() {
             </div>
           </div>
         )}
-      </>
+      </div>
     );
   }
 }

@@ -14,7 +14,6 @@ export default function Post({
   link,
   fullscreen = false,
 }) {
-  // const [watched, isWatcher] = useState(false);
   return (
     <div className="w-full flex justify-center">
       <a
@@ -22,9 +21,9 @@ export default function Post({
         target={!fullscreen && "_blank"}
         className={`${
           fullscreen
-            ? "w-[45vw] flex-col  "
-            : "w-full flex-row-reverse justify-end"
-        } flex  p-5 border-b border-[#3e404222] dark:border-[#3e404288] items-center hover:bg-[#3e404222]`}
+            ? "sm:w-[45vw] w-[90vw] flex-col  "
+            : "w-full sm:flex-row-reverse flex-col justify-end"
+        } flex  p-5 items-center hover:bg-[#3e404222]`}
       >
         {fullscreen ? (
           <h1 className="mainTitle text-start">{title}</h1>
@@ -33,7 +32,7 @@ export default function Post({
         )}
         <div
           className={`${
-            fullscreen ? "w-[40vw]" : "w-[70%] max-w-[290px]"
+            fullscreen ? "sm:w-[40vw] w-[90vw]" : "sm:w-[70%] w-[90%]"
           } max-w-[500px] h-auto object-cover border border-[#3e404222] mt-2 rounded-xl`}
         >
           <img
