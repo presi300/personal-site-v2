@@ -32,7 +32,7 @@ const Blog = ({}) => {
         url="https://presi300.com/blog "
         title="A blog"
         description="Presi300's amazing... incredible blog, yeah"
-        ogImage=""
+        ogImage="https://i.imgur.com/Z8S9E2j.png"
       ></Metadata>
       <AnimatePresence>
         {settings && (

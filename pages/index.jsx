@@ -33,7 +33,7 @@ export default function Home({ size }) {
   return (
     <>
       <Metadata
-        title="A website"
+        title="Presi300.com - A website"
         description="Yeah, it's a websie, I think"
         url="https://presi300.com"
         ogImage="https://i.imgur.com/c42Pg59.png"

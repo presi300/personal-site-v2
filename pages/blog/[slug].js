@@ -11,7 +11,18 @@ function Page({ router }) {
   const { slug } = router.query;
 
   if (!router.isReady) {
-    return <div>Loading...</div>;
+    // I fcking give up on adding metadata per post, dynamic metadata in pages router is absolute cancer, maybe I'll revisit the idea some other day
+    return (
+      <>
+        <Metadata
+          url="https://presi300.com/blog"
+          title="A blog"
+          description="Presi300's amazing... incredible blog, yeah"
+          ogImage="https://i.imgur.com/Z8S9E2j.png"
+        ></Metadata>
+        <div>Loading...</div>
+      </>
+    );
   }
 
   const post = TempPosts.findIndex((e) => e.ShortTitle === slug);
