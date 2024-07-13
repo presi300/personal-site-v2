@@ -55,7 +55,7 @@ const Blog = ({}) => {
           <div className="w-full h-full flex items-center ">
             <Link className="flex items-center w-full gap-1  h-full " href="/">
               <img
-                src="/images/logo.png"
+                src="Images/logo.png"
                 className="w-auto h-[25px] rounded-[4px] ml-3"
               ></img>
               <h4 className="font-semibold w-full pt-2  hidden  items-end sm:sm:flex">

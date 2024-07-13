@@ -17,7 +17,6 @@ export default function OobePages({
   children,
 }) {
   const [selectedFreature, selectedFeatureHandler] = useState(1);
-  console.log("DINGUS", accent);
   function Page({ children }) {
     return (
       <div className="flex flex-col w-full h-[60vh]  justify-center items-center">

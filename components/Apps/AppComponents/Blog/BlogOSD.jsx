@@ -29,7 +29,7 @@ export default function BlogOSD({ Title, ShortTitle }) {
         </h4>
         <Link className="flex items-center  gap-1  h-full" href="/blog">
           <img
-            src="/images/logo.png"
+            src="Images/logo.png"
             className="w-auto h-[30px] rounded-[4px] ml-3"
           ></img>
         </Link>
