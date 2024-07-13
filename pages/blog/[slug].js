@@ -28,38 +28,40 @@ export default function Page() {
       : "https://presi300.com/blog";
 
     return (
-      <div className="overflow-hidden">
+      <>
         <Metadata
           url={postLink}
           title={postTitle}
           description="TODO: Add post descriptions"
           ogImage={""}
         ></Metadata>
-        {(typeof window !== undefined && TempPosts[post] && (
-          <div className="w-screen h-screen pt-[50px] overflow-hidden">
-            <BlogOSD
-              Title={TempPosts[post].Title}
-              ShortTitle={TempPosts[post].ShortTitle}
-            ></BlogOSD>
-            <iframe
-              className="w-screen h-full"
-              src={TempPosts[post].Link}
-            ></iframe>
-          </div>
-        )) || (
-          <div className="w-screen h-screen flex flex-col items-center justify-center">
-            <h1>{`Oops... Post "${slug}" was not found.`}</h1>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <Button>
-                Return to the <b>blog</b> page?
-              </Button>
-              <Button>
-                Return to the <b>main</b> page?
-              </Button>
+        <div className="overflow-hidden">
+          {(typeof window !== undefined && TempPosts[post] && (
+            <div className="w-screen h-screen pt-[50px] overflow-hidden">
+              <BlogOSD
+                Title={TempPosts[post].Title}
+                ShortTitle={TempPosts[post].ShortTitle}
+              ></BlogOSD>
+              <iframe
+                className="w-screen h-full"
+                src={TempPosts[post].Link}
+              ></iframe>
             </div>
-          </div>
-        )}
-      </div>
+          )) || (
+            <div className="w-screen h-screen flex flex-col items-center justify-center">
+              <h1>{`Oops... Post "${slug}" was not found.`}</h1>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Button>
+                  Return to the <b>blog</b> page?
+                </Button>
+                <Button>
+                  Return to the <b>main</b> page?
+                </Button>
+              </div>
+            </div>
+          )}
+        </div>
+      </>
     );
   }
 }
