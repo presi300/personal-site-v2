@@ -1,4 +1,4 @@
-import { useRouter, withRouter } from "next/router";
+import { withRouter } from "next/router";
 import {
   TempPosts,
   PostMetadata,
@@ -6,15 +6,13 @@ import {
 import Button from "@/components/Apps/AppComponents/Button";
 import BlogOSD from "@/components/Apps/AppComponents/Blog/BlogOSD";
 import Metadata from "@/components/Metadata";
-import { useEffect, useState } from "react";
 
 function Page({ router }) {
-  const slug = router.query.slug;
-  const [searchQuery, setSearchQuery] = useState("");
+  const { slug } = router.query;
 
-  useEffect(() => {
-    router.isReady ? setSearchQuery(slug) : console.log("router is not ready");
-  }, [slug]);
+  if (!router.isReady) {
+    return <div>Loading...</div>;
+  }
 
   const post = TempPosts.findIndex((e) => e.ShortTitle === slug);
 
@@ -30,7 +28,7 @@ function Page({ router }) {
           description="TODO: Add post descriptions"
           ogImage={""}
         ></Metadata>
-        {typeof window !== undefined && router.isReady && (
+        {typeof window !== undefined && (
           <div className="overflow-hidden">
             <div className="w-screen h-screen pt-[50px] overflow-hidden">
               <BlogOSD
@@ -55,7 +53,7 @@ function Page({ router }) {
           description="TODO: Add post descriptions"
           ogImage={""}
         ></Metadata>
-        {typeof window !== undefined && router.isReady && (
+        {typeof window !== undefined && (
           <div className="w-screen h-screen flex flex-col items-center justify-center">
             <h1>{`Oops... Post "${slug}" was not found.`}</h1>
             <div className="flex flex-col sm:flex-row gap-3">
