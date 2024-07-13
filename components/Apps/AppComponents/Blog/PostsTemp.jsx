@@ -16,3 +16,14 @@ export const TempPosts = [
     key: "1",
   },
 ];
+
+export const PostMetadata = {
+  Welcome: {
+    Title: "Welcome to presi300.com (v2)",
+    MtLink: "https://presi300.com/blog/Welcome",
+  },
+  WritedownAd: {
+    Title: "Presi300.com and writedown.app",
+    MtLink: "https://presi300.com/blog/WritedownAd",
+  },
+};
