@@ -1,4 +1,4 @@
-import { useRouter } from "next/router";
+import { useRouter, withRouter } from "next/router";
 import {
   TempPosts,
   PostMetadata,
@@ -6,12 +6,16 @@ import {
 import Button from "@/components/Apps/AppComponents/Button";
 import BlogOSD from "@/components/Apps/AppComponents/Blog/BlogOSD";
 import Metadata from "@/components/Metadata";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
-export default function Page() {
-  const router = useRouter();
-
+function Page({ router }) {
   const slug = router.query.slug;
+  const [searchQuery, setSearchQuery] = useState("");
+
+  useEffect(() => {
+    router.isReady ? setSearchQuery(slug) : console.log("router is not ready");
+  }, [slug]);
+
   const post = TempPosts.findIndex((e) => e.ShortTitle === slug);
 
   const MetadataKeys = Object.keys(PostMetadata);
@@ -26,8 +30,8 @@ export default function Page() {
           description="TODO: Add post descriptions"
           ogImage={""}
         ></Metadata>
-        <div className="overflow-hidden">
-          {typeof window !== undefined && router.isReady && (
+        {typeof window !== undefined && router.isReady && (
+          <div className="overflow-hidden">
             <div className="w-screen h-screen pt-[50px] overflow-hidden">
               <BlogOSD
                 Title={TempPosts[post].Title}
@@ -38,8 +42,8 @@ export default function Page() {
                 src={TempPosts[post].Link}
               ></iframe>
             </div>
-          )}
-        </div>
+          </div>
+        )}
       </>
     );
   } else {
@@ -68,3 +72,5 @@ export default function Page() {
     );
   }
 }
+
+export default withRouter(Page);
