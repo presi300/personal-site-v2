@@ -1,114 +1,113 @@
-import DesktopLayout from "../components/Layouts/Desktop/DesktopWM";
-import { useEffect, useState } from "react";
-import MobileLayout from "../components/Layouts/Mobile/MobileWM";
-import { motion, AnimatePresence } from "framer-motion";
-import { FiMonitor } from "react-icons/fi";
-import { IoPhonePortraitOutline } from "react-icons/io5";
-import useWindowSize from "@/components/hooks/useWindowSize";
-import OOBE from "../components/Apps/ActualApps/OOBE";
-import useLocalStorage from "@/components/hooks/useLocalStorage";
-import { useAtom } from "jotai";
-import { selectedAccent } from "@/components/Atoms";
+import React from "react";
 import Metadata from "@/components/Metadata";
+import Button from "@/components/Apps/AppComponents/Button";
+import { useRouter } from "next/router";
+import { selectedAccent } from "@/components/Atoms";
+import { useAtom } from "jotai";
+import { motion, AnimatePresence } from "framer-motion";
+import MoaiAnimation from "@/components/FrontPage/MoaiAnimation";
+import { useState } from "react";
+import SmallSettings from "@/components/SmallSettings";
 
-// useLocalStorage from @uidotdev/usehooks is bugged
-
-export default function Home({ size }) {
-  const accent = useAtom(selectedAccent);
-  console.log(accent);
-  const [oobeState, setOobeState] = useLocalStorage("oobeState", false);
-  const setAcc = useLocalStorage("AccColor");
-  size = useWindowSize(200);
-
-  const [layout, layoutSetter] = useState(true);
-  useEffect(() => {
-    if (typeof window == undefined) {
-      return;
-    }
-    if (size.width >= 600) {
-      layoutSetter(false);
-    } else layoutSetter(true);
-  }, [size]);
-
+const Home = ({}) => {
+  const router = useRouter();
+  const atom = useAtom(selectedAccent);
+  const accent = atom[0].color;
+  const [settings, toggleSettings] = useState(false);
   return (
     <>
       <Metadata
         title="Presi300.com - A website"
-        description="Yeah, it's a websie, I think"
-        url="https://presi300.com"
-        ogImage="https://i.imgur.com/c42Pg59.png"
+        description="A website's frontpage"
+        ogImage="https://i.imgur.com/2HsX9U1.png"
       ></Metadata>
-      {(oobeState && (
-        <div
-          style={{
-            width: "100vw",
-            height: "100vh",
-            backgroundPosition: "center",
-            backgroundSize: "cover",
-          }}
-          className="dark:bg-light-wallpaper bg-dark-wallpaper"
-        >
-          {/* I am fully aware that there is a better way to do this and I'm too lazy to change it :) */}
-          <AnimatePresence>
-            {layout && (
-              <motion.div
-                initial={{ scale: 0.4, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="fixed top-0 bottom-0 left-0 right-0"
-                transition={{ type: "tween", duration: 0.4 }}
-              >
-                <MobileLayout accent={accent[0].color}></MobileLayout>
-              </motion.div>
-            )}
-          </AnimatePresence>
-          <AnimatePresence>
-            {!layout && (
-              <motion.div
-                initial={{ scale: 1.5, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ opacity: 0, scale: 1.5 }}
-                transition={{ type: "tween", duration: 0.4 }}
-                className="fixed top-0 bottom-0 left-0 right-0"
-              >
-                <DesktopLayout accent={accent[0].color}></DesktopLayout>
-              </motion.div>
-            )}
-          </AnimatePresence>
-
-          <button
-            className="absolute z-0 top-[7px] right-24"
-            onClick={() => layoutSetter(!layout)}
+      <div className="w-screen h-screen bg-sleepless-400 ">
+        <MoaiAnimation></MoaiAnimation>
+        <nav className="fixed top-3 left-3 right-3 bg-sleepless-75 dark:bg-sleepless-300 z-20 bg-opacity-70 dark:bg-opacity-50 h-[60px] rounded-xl  shadow-md backdrop-blur-md">
+          <div
+            className="w-full h-full flex items-center rounded-xl border"
+            style={{
+              backgroundColor: accent + "15",
+              borderColor: accent + "25",
+            }}
           >
+            <button
+              className="flex items-center w-full gap-1  h-full "
+              onClick={() => toggleSettings(!settings)}
+            >
+              <img
+                src="Images/logo.png"
+                className="w-auto h-[35px] rounded-[4px] ml-3"
+              ></img>
+              <h3
+                className="font-semibold w-full pt-8 pl-0 text-end  hidden items-end sm:sm:flex dark:text-sleepless-50 text-sleepless-50 "
+                style={{ textShadow: "2px 2px black" }}
+              >
+                Presi300.com
+              </h3>
+            </button>
             <AnimatePresence>
-              {layout && (
+              {settings && (
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ duration: 0.7 }}
-                  exit={{ opacity: 0, rotateZ: 180 }}
-                  className="absolute"
+                  exit={{ opacity: 0 }}
+                  className="fixed top-16 left-0 rounded-xl dark:bg-sleepless-400 h-[400px] w-[400px] p-2 bg-sleepless-50 transition-all shadow-lg"
                 >
-                  <FiMonitor></FiMonitor>
+                  <SmallSettings></SmallSettings>
                 </motion.div>
               )}
             </AnimatePresence>
-            <AnimatePresence>
-              {!layout && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.7 }}
-                  exit={{ opacity: 0, rotateZ: -180 }}
-                  className="absolute"
-                >
-                  <IoPhonePortraitOutline></IoPhonePortraitOutline>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </button>
-        </div>
-      )) || <OOBE accent={accent[0].color}></OOBE>}
+
+            <div className="w-full flex justify-end pr-3">
+              <div className="w-fit">
+                {" "}
+                <Button clickfunc={() => router.push("/desktopPage")}>
+                  Go to the real site!
+                </Button>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <main
+          className="w-screen h-screen absolute z-10 flex flex-col items-center backdrop-blur-sm"
+          style={{ backgroundColor: accent + "05" }}
+        >
+          <div className="w-full h-screen mt-24 flex flex-col items-center justify-center">
+            <div className="pb-24">
+              <motion.h1
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 3 }}
+                className="dark:text-sleepless-50 text-sleepless-50 text-6xl p-0"
+                style={{ textShadow: "2px 2px black" }}
+              >
+                Presi300.com
+              </motion.h1>
+              <motion.h2
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.5, duration: 4 }}
+                className="dark:text-sleepless-50 text-sleepless-50 text-3xl p-0 pt-2"
+                style={{ textShadow: "2px 2px black" }}
+              >
+                A website*
+              </motion.h2>
+            </div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 20, duration: 2 }}
+            >
+              <Button clickfunc={() => router.push("/desktopPage")}>
+                This page got your attention?
+              </Button>
+            </motion.div>
+          </div>
+        </main>
+      </div>
     </>
   );
-}
+};
+
+export default Home;

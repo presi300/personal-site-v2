@@ -12,7 +12,7 @@ export default function AccentPicker({}) {
     { id: 5, color: "#B76BFF" },
     { id: 6, color: "#1C90FF" },
     { id: 7, color: "#16191b" },
-    { id: 8, color: "#9fa1a2" },
+    { id: 8, color: "#9fa1a1" },
   ];
   const [chosenAccent, setChosenAccent] = useAtom(selectedAccent);
 

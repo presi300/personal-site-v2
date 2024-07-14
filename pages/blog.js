@@ -40,7 +40,7 @@ const Blog = ({}) => {
             initial={{ opacity: 0.3 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed sm:top-16 sm:left-auto left-0 top-12 sm:right-3 right-0 sm:w-[400px] shadow-md w-full transition-all bg-sleepless-50 dark:bg-sleepless-400 p-7 rounded-lg"
+            className="fixed sm:top-16 sm:left-auto left-0 top-12 sm:right-3 right-0 sm:w-[400px] shadow-md w-full transition-all bg-sleepless-50 dark:bg-sleepless-400 border dark:border-gray-800 border-gray-300 p-7 rounded-lg"
           >
             <SmallSettings></SmallSettings>
           </motion.div>
@@ -53,7 +53,10 @@ const Blog = ({}) => {
           {" "}
           {/* Left */}
           <div className="w-full h-full flex items-center ">
-            <Link className="flex items-center w-full gap-1  h-full " href="/">
+            <Link
+              className="flex items-center w-full gap-1  h-full "
+              href="/desktopPage"
+            >
               <img
                 src="Images/logo.png"
                 className="w-auto h-[25px] rounded-[4px] ml-3"
@@ -68,7 +71,10 @@ const Blog = ({}) => {
           {/* Right */}
           <div className="w-full flex items-center h-full justify-end">
             <button onClick={() => toggleSettings(!settings)}>
-              <CiSettings className="mr-3" size={30}></CiSettings>
+              <CiSettings
+                className="mr-3 transition-all hover:rotate-90"
+                size={30}
+              ></CiSettings>
             </button>
           </div>
         </nav>

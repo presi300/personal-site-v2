@@ -1,8 +1,9 @@
 import { ThemeProvider } from "next-themes";
 import "../styles/globals.css";
 import { EventEmitter } from "events";
-
 import { Poppins } from "next/font/google";
+import { selectedAccent } from "@/components/Atoms";
+import { useAtom } from "jotai";
 
 EventEmitter.defaultMaxListeners = 20;
 
