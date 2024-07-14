@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Presi300.com - A websie
 
-## Getting Started
+## Yeah, it's my personal website...
 
-First, run the development server:
+### Yes, it is a MacOS clone made in JS... ish
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+![](https://i.imgur.com/c42Pg59.png)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Freatures!
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- Window management... You can do all the fun stuff you can with a regular, rather simplistic window manager.
+- - Dragging windows around, fullscreening and edge tiling
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+‎
 
-## Learn More
+- Dynamically add new "applications". Yep, all of the "Apps" are actually just JSX files, stored in the **/components/Apps/ActualApps** folder. Adding a new one... If you for some reason feel like doing that is as simple as adding a new file in the aformentioned folder and importing it in the **/components/Apps/AppMapper.jsx** file. After you've done all that, your new "application" should get it's own bespoke launcher and window on both mobile and desktop.
 
-To learn more about Next.js, take a look at the following resources:
+  ‎
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Bespoke mobile layout. It looks kinda like android...
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+  ‎
 
-## Deploy on Vercel
+- Dynamic accent colors! You can choose one from the settings window.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+  ‎
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- A blog... (No CDN or database required!) See **/components/AppComponents/Blog/PostsTemp.jsx** for more information.
+
+## How to run locally?
+
+1. Clone this repo
+
+2. ```bash
+   cd personal-site-v2
+
+   ```
+
+3. ```bash
+   npm i
+
+   ```
+
+4. ```bash
+   npm run build
+
+   ```
+
+5. ```bash
+   npm run start
+   ```
