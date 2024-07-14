@@ -38,16 +38,16 @@ export default function TestApp3({}) {
           <h1 id="About">About me</h1>
           <p className="">
             Hi, I’m Preslav Valchev, {year - 2005} years old. Mostly self-taught
-            with (I believe) a lot to show for it. I’m affluent in{" "}
+            with (I believe) a lot to show for it. I’m fluent in{" "}
             <b>Bulgarian</b> and <b>English</b> with a fully open mind for
             learning other languages in the future.
             <br></br> <br></br>
             My main programming language is <b>JavaScript</b>, using{" "}
-            <b>react</b> and <b>JSX</b> to be more precise, with a particular
+            <b>React</b> and <b>JSX</b> to be more precise, with a particular
             passion in front-end development and UI design.
             <br></br>
             <br></br>
-            I’m a life long <b>Linux/GNU+Linux</b> user (Alpine Linux FYI) with
+            I’m a life-long <b>Linux/GNU+Linux</b> user (Alpine Linux FYI) with
             a very good understanding of the entire linux ecosystem and most of
             the backend stack, including things like <b>docker</b>, <b>nginx</b>
             , <b>qemu/kvm</b> as well as storage solutions like <b>RAID</b> ,
@@ -79,14 +79,14 @@ export default function TestApp3({}) {
               My main hobby is and for a while has been UI design... Yeah... I
               do have other interests, all of which also revolve around
               computers.<br></br>
-              <br></br> Using linux started as a hobby for me and it still is.
+              <br></br> Using Linux started as a hobby for me and it still is.
               Building an entire operating system out of a simple command line
               and configuring it to be precisely what I want has never stopped
               being interesting to me, I even made a whole website about it!
               (See https://gentoo.guide). <br></br>
               <br></br> Self hosting is another, more recent hobby of mine. Not
               having to pay monthly for cloud storage or see ads sure is an
-              incentive to get into something
+              incentive to get into something.
             </p>
           </p>
         </div>

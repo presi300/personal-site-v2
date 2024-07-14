@@ -1,4 +1,4 @@
-# Presi300.com - A websie
+# Presi300.com - A website
 
 ## Yeah, it's my personal website...
 
@@ -6,14 +6,14 @@
 
 ![](https://i.imgur.com/c42Pg59.png)
 
-## Freatures!
+## Features!
 
 - Window management... You can do all the fun stuff you can with a regular, rather simplistic window manager.
 - - Dragging windows around, fullscreening and edge tiling
 
 ‎
 
-- Dynamically add new "applications". Yep, all of the "Apps" are actually just JSX files, stored in the **/components/Apps/ActualApps** folder. Adding a new one... If you for some reason feel like doing that is as simple as adding a new file in the aformentioned folder and importing it in the **/components/Apps/AppMapper.jsx** file. After you've done all that, your new "application" should get it's own bespoke launcher and window on both mobile and desktop.
+- Dynamically add new "applications". Yep, all of the "Apps" are actually just JSX files, stored in the **/components/Apps/ActualApps** folder. Adding a new one... If you for some reason feel like doing that is as simple as adding a new file in the aformentioned folder and importing it in the **/components/Apps/AppMapper.jsx** file. After you've done all that, your new "application" should get its own bespoke launcher and window on both mobile and desktop.
 
   ‎
 
