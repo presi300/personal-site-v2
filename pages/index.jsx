@@ -21,18 +21,19 @@ const Home = ({}) => {
         description="A website's frontpage"
         ogImage="https://i.imgur.com/2HsX9U1.png"
       ></Metadata>
-      <div className="w-screen h-screen bg-sleepless-400 ">
+      <div className="w-screen h-screen overflow-y-hidden bg-sleepless-400">
         <MoaiAnimation></MoaiAnimation>
         <nav className="fixed top-3 left-3 right-3 bg-sleepless-75 dark:bg-sleepless-300 z-20 bg-opacity-70 dark:bg-opacity-50 h-[60px] rounded-xl  shadow-md backdrop-blur-md">
+          {/* Left side */}
           <div
-            className="w-full h-full flex items-center rounded-xl border"
+            className="flex items-center w-full h-full border rounded-xl"
             style={{
               backgroundColor: accent + "15",
               borderColor: accent + "25",
             }}
           >
             <button
-              className="flex items-center w-full gap-1  h-full "
+              className="flex items-center h-full gap-1 pr-5 w-fit "
               onClick={() => toggleSettings(!settings)}
             >
               <img
@@ -40,7 +41,7 @@ const Home = ({}) => {
                 className="w-auto h-[35px] rounded-[4px] ml-3"
               ></img>
               <h3
-                className="font-semibold w-full pt-8 pl-0 text-end  hidden items-end sm:sm:flex dark:text-sleepless-50 text-sleepless-50 "
+                className="items-end hidden w-full pt-8 pl-0 font-semibold text-end sm:sm:flex dark:text-sleepless-50 text-sleepless-50"
                 style={{ textShadow: "2px 2px black" }}
               >
                 Presi300.com
@@ -58,8 +59,8 @@ const Home = ({}) => {
                 </motion.div>
               )}
             </AnimatePresence>
-
-            <div className="w-full flex justify-end pr-3">
+            {/* Right side */}
+            <div className="flex justify-end w-full pr-3 ">
               <div className="w-fit">
                 {" "}
                 <Button clickfunc={() => router.push("/desktopPage")}>
@@ -70,16 +71,16 @@ const Home = ({}) => {
           </div>
         </nav>
         <main
-          className="w-screen h-screen absolute z-10 flex flex-col items-center backdrop-blur-sm"
+          className="absolute z-10 flex flex-col items-center w-screen h-screen overflow-hidden backdrop-blur-sm"
           style={{ backgroundColor: accent + "05" }}
         >
-          <div className="w-full h-screen mt-24 flex flex-col items-center justify-center">
+          <div className="flex flex-col items-center justify-center w-full h-screen mt-24 overflow-hidden">
             <div className="pb-24">
               <motion.h1
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 3 }}
-                className="dark:text-sleepless-50 text-sleepless-50 text-6xl p-0"
+                className="p-0 text-4xl dark:text-sleepless-50 text-sleepless-50 sm:text-6xl"
                 style={{ textShadow: "2px 2px black" }}
               >
                 Presi300.com
@@ -88,10 +89,10 @@ const Home = ({}) => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.5, duration: 4 }}
-                className="dark:text-sleepless-50 text-sleepless-50 text-3xl p-0 pt-2"
+                className="p-0 pt-2 text-3xl dark:text-sleepless-50 text-sleepless-50"
                 style={{ textShadow: "2px 2px black" }}
               >
-                A website*
+                A website
               </motion.h2>
             </div>
             <motion.div

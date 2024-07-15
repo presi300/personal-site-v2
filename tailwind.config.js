@@ -15,7 +15,12 @@ module.exports = {
       },
       screens: {
         short: { raw: "(max-height: 800px)" },
-        // => @media (min-height: 800px) { ... }
+
+        max_sm: { raw: "(max-width: 640px)" },
+        max_md: { raw: "(max-width: 768px)" },
+        max_lg: { raw: "(max-width: 1024px)" },
+        max_xl: { raw: "(max-width: 1280px)" },
+        max_2xl: { raw: "(max-width: 1536px)" },
       },
       colors: {
         sleepless: {
