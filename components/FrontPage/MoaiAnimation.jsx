@@ -59,7 +59,7 @@ export default function MoaiAnimation({}) {
         initial={{ scale: 0, rotate: 45 }}
         animate={{ scale: 24 }}
         transition={{ delay: 11.5, duration: 18 }}
-        className="w-[40vw] sm:w-[20vw] sm:h-[20vw]  h-[40vw] absolute bottom-[-20vw] right-[-20vw]sm:bottom-[-10vw] sm:right-[-10vw]  rotate-[45deg] z-[0] bg-white dark:bg-sleepless-400  scale-[1200%]"
+        className="w-[40vw] sm:w-[20vw] sm:h-[20vw]  h-[40vw] absolute bottom-[-20vw] right-[-20vw] sm:bottom-[-10vw] sm:right-[-10vw]  rotate-[45deg] z-[0] bg-white dark:bg-sleepless-400  scale-[1200%]"
       >
         <div
           className="w-full h-full transition-colors"

@@ -41,7 +41,7 @@ const Home = ({}) => {
                 className="w-auto h-[35px] rounded-[4px] ml-3"
               ></img>
               <h3
-                className="items-end hidden w-full pt-8 pl-0 font-semibold text-end sm:sm:flex dark:text-sleepless-50 text-sleepless-50"
+                className="items-end hidden w-full pt-8 pl-0 font-semibold text-end sm:flex dark:text-sleepless-50 text-sleepless-50"
                 style={{ textShadow: "2px 2px black" }}
               >
                 Presi300.com
@@ -53,7 +53,7 @@ const Home = ({}) => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  className="fixed top-16 left-0 rounded-xl dark:bg-sleepless-400 h-[400px] w-[400px] p-2 bg-sleepless-50 transition-all shadow-lg"
+                  className="fixed top-16 left-0 rounded-xl dark:bg-sleepless-400 h-[400px] w-[400px] max_sm:w-full p-2 bg-sleepless-50 transition-all shadow-lg"
                 >
                   <SmallSettings></SmallSettings>
                 </motion.div>
