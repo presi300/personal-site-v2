@@ -17,7 +17,7 @@ export default function MoaiAnimation({}) {
         initial={{ opacity: 0, x: 100, y: 100 }}
         animate={{ opacity: 1, x: 0, y: 30 }}
         transition={{ delay: 3, duration: 5 }}
-        className="fixed z-10 h-[60vh] transition-all min-h-[400px] bottom-[-50px] right-[-130px]"
+        className="fixed z-10 h-[60vh]  min-h-[400px] bottom-[-50px] right-[-130px]"
         src="/icons/moai.svg"
       ></motion.img>
 
@@ -25,7 +25,7 @@ export default function MoaiAnimation({}) {
         initial={{ scale: 0, rotate: 45 }}
         animate={{ scale: 3 }}
         transition={{ delay: 7.5, duration: 2 }}
-        className="w-[40vw] h-[40vw] sm:w-[20vw]  sm:h-[20vw] absolute sm:bottom-[-10vw] sm:right-[-10vw]  bottom-[-20vw] right-[-20vw] rotate-[45deg] z-[3] bg-white dark:bg-sleepless-400 transition-all scale-[300%]"
+        className="w-[40vw] h-[40vw] sm:w-[20vw]  sm:h-[20vw] absolute sm:bottom-[-10vw] sm:right-[-10vw]  bottom-[-20vw] right-[-20vw] rotate-[45deg] z-[3] bg-white dark:bg-sleepless-400  scale-[300%]"
       >
         <div
           className="w-full h-full transition-colors"
@@ -36,7 +36,7 @@ export default function MoaiAnimation({}) {
         initial={{ scale: 0, rotate: 45 }}
         animate={{ scale: 6 }}
         transition={{ delay: 8.5, duration: 4 }}
-        className="w-[40vw] sm:w-[20vw] sm:h-[20vw] h-[40vw] absolute bottom-[-20vw] right-[-20vw] sm:bottom-[-10vw] sm:right-[-10vw]  rotate-[45deg] z-[2] bg-white dark:bg-sleepless-400 transition-all scale-[600%]"
+        className="w-[40vw] sm:w-[20vw] sm:h-[20vw] h-[40vw] absolute bottom-[-20vw] right-[-20vw] sm:bottom-[-10vw] sm:right-[-10vw]  rotate-[45deg] z-[2] bg-white dark:bg-sleepless-400  scale-[600%]"
       >
         <div
           className="w-full h-full transition-colors"
@@ -47,8 +47,8 @@ export default function MoaiAnimation({}) {
       <motion.div
         initial={{ scale: 0, rotate: 45 }}
         animate={{ scale: 9 }}
-        transition={{ delay: 9.5, duration: 7 }}
-        className="w-[40vw] sm:w-[20vw] sm:h-[20vw]  h-[40vw] absolute bottom-[-20vw] right-[-20vw] sm:bottom-[-10vw] sm:right-[-10vw] rotate-[45deg] z-[1] bg-white dark:bg-sleepless-400 transition-all scale-[900%]"
+        transition={{ delay: 10, duration: 6 }}
+        className="w-[40vw] sm:w-[20vw] sm:h-[20vw]  h-[40vw] absolute bottom-[-20vw] right-[-20vw] sm:bottom-[-10vw] sm:right-[-10vw] rotate-[45deg] z-[1] bg-white dark:bg-sleepless-400  scale-[900%]"
       >
         <div
           className="w-full h-full transition-colors"
@@ -58,8 +58,8 @@ export default function MoaiAnimation({}) {
       <motion.div
         initial={{ scale: 0, rotate: 45 }}
         animate={{ scale: 24 }}
-        transition={{ delay: 14, duration: 12 }}
-        className="w-[40vw] sm:w-[20vw] sm:h-[20vw]  h-[40vw] absolute bottom-[-20vw] right-[-20vw]sm:bottom-[-10vw] sm:right-[-10vw]  rotate-[45deg] z-[0] bg-white dark:bg-sleepless-400 transition-all scale-[1200%]"
+        transition={{ delay: 11.5, duration: 18 }}
+        className="w-[40vw] sm:w-[20vw] sm:h-[20vw]  h-[40vw] absolute bottom-[-20vw] right-[-20vw]sm:bottom-[-10vw] sm:right-[-10vw]  rotate-[45deg] z-[0] bg-white dark:bg-sleepless-400  scale-[1200%]"
       >
         <div
           className="w-full h-full transition-colors"
