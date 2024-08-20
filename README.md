@@ -13,7 +13,7 @@
 
 ‎
 
-- Dynamically add new "applications". Yep, all of the "Apps" are actually just JSX files, stored in the **/components/Apps/ActualApps** folder. Adding a new one... If you for some reason feel like doing that, it's as simple as adding a new file in the aforementioned folder and importing it in the **/components/Apps/AppMapper.jsx** file. After you've done all that, your new "application" should get its own bespoke launcher and window on both mobile and desktop.
+- Dynamically add new "applications". Yep, all of the "Apps" are actually just JSX files, stored in the **/components/Apps/ActualApps** folder. Adding a new one... If you for some reason feel like doing that, is as simple as adding a new file in the aforementioned folder and importing it in the **/components/Apps/AppMapper.jsx** file. After you've done all that, your new "application" should get its own bespoke launcher and window on both mobile and desktop.
 
   ‎
 
@@ -33,17 +33,14 @@
 
 2. ```bash
    cd personal-site-v2
-
    ```
 
 3. ```bash
    npm i
-
    ```
 
 4. ```bash
    npm run build
-
    ```
 
 5. ```bash

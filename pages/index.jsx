@@ -6,14 +6,19 @@ import { selectedAccent } from "@/components/Atoms";
 import { useAtom } from "jotai";
 import { motion, AnimatePresence } from "framer-motion";
 import MoaiAnimation from "@/components/FrontPage/MoaiAnimation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SmallSettings from "@/components/SmallSettings";
+import { useTheme } from "next-themes";
 
 const Home = ({}) => {
   const router = useRouter();
   const atom = useAtom(selectedAccent);
   const accent = atom[0].color;
   const [settings, toggleSettings] = useState(false);
+  const { theme } = useTheme;
+
+  // Disable dark reader if it's enabled, as it causes weird visual glitches. The
+
   return (
     <>
       <Metadata
