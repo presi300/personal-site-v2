@@ -146,7 +146,7 @@ export default forwardRef(function FancyWindow(props, ref) {
         <div>
           <Rnd
             ref={multiRef}
-            className={`bg-swinRefleepless-50 dark:bg-sleepless-400  border ${
+            className={`bg-swinRefleepless-50 dark:bg-sleepless-400 bg-sleepless-50 border ${
               maximized ? " rounded-xl" : "rounded-none "
             } ${
               animated ? "transition-none" : "transition-all"
