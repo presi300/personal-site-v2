@@ -82,8 +82,8 @@ export default function TestApp3({}) {
           <h1 id="Music">Music stuff, idk</h1>
           <p>
             I'm a bit of an audiophile... Or at least wanna be, all the
-            audiophile stuff is hella expensive, so here are some of my favorite
-            tracks/groups to listen to. <br></br> <br></br>
+            audiophile stuff is hella expensive. Anyway, here are some of my
+            favorite tracks/groups to listen to. <br></br> <br></br>
             <a
               target="_blank"
               href="https://www.youtube.com/channel/UCAOiVaJJlH0Oduv48NN0mMA"
