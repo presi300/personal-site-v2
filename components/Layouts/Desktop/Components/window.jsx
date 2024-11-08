@@ -24,8 +24,6 @@ export default forwardRef(function FancyWindow(props, ref) {
     title = "Lorem Ipsum",
   } = props;
 
-  const winRef = createRef(null);
-
   const rndRef = createRef(null);
 
   const [animated, animatedHandler] = useState(false);
@@ -148,7 +146,7 @@ export default forwardRef(function FancyWindow(props, ref) {
         <div>
           <Rnd
             ref={multiRef}
-            className={`bg-sleepless-50 dark:bg-sleepless-400  border ${
+            className={`bg-swinRefleepless-50 dark:bg-sleepless-400  border ${
               maximized ? " rounded-xl" : "rounded-none "
             } ${
               animated ? "transition-none" : "transition-all"
@@ -177,7 +175,7 @@ export default forwardRef(function FancyWindow(props, ref) {
             }}
             onClick={clickFunc}
           >
-            <div ref={winRef} className="w-full h-full ">
+            <div className="w-full h-full ">
               {/* Close and maximize */}
               <div
                 style={{ zIndex: z + 1 }}

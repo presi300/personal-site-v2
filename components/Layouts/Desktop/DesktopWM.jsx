@@ -25,11 +25,9 @@ export default function DesktopLayout({ accent }) {
 
   useEffect(() => {
     if (y >= window.innerHeight - 30 && !isBottomBarUp) {
-      console.log("TEST");
       isBottomBarUpHandler(true);
     } else if (y < window.innerHeight - 100 && isBottomBarUp) {
       isBottomBarUpHandler(false);
-      console.log("Pootis");
     }
   }, [y]);
 
@@ -41,8 +39,6 @@ export default function DesktopLayout({ accent }) {
   const [definedWindows, definedWindowsHandler] = useState([]);
   // Array with zIndexes of all windows
   const [currentZ, setCurrentZ] = useState([]);
-
-  const boundingBox = useRef(null);
 
   // <Logic for focusing and window priority>
   // If a window is clicked or a new one is spawned, set it's Zindex to the top and move all others by 1
@@ -102,7 +98,7 @@ export default function DesktopLayout({ accent }) {
         style={{
           zIndex: setZ(id),
         }}
-        className="absolute left-0 right-0 top-0"
+        className="absolute top-0 left-0 right-0"
         key={id}
       >
         <FancyWindow
@@ -165,7 +161,7 @@ export default function DesktopLayout({ accent }) {
       >
         <div
           style={{ borderColor: accent + "60" }}
-          className="bg-sleepless-50  rounded-2xl bg-opacity-50 border dark:bg-sleepless-300 border-sleepless-75 border-opacity-50 backdrop-blur-xl"
+          className="bg-opacity-50 border border-opacity-50 bg-sleepless-50 rounded-2xl dark:bg-sleepless-300 border-sleepless-75 backdrop-blur-xl"
         >
           <div
             className="w-full h-full flex gap-5 p-1.5 rounded-2xl"
@@ -175,10 +171,10 @@ export default function DesktopLayout({ accent }) {
           </div>
         </div>
       </div>
-      <div className="" ref={boundingBox}>
+      <div className="">
         <AnimatePresence>{spawnWindows(definedWindows)}</AnimatePresence>
       </div>
-      <div className="fixed bottom-0 w-screen flex gap-2">
+      <div className="fixed bottom-0 flex w-screen gap-2">
         <TopBar accent={accent}></TopBar>
       </div>
     </div>
