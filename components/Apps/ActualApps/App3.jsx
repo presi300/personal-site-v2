@@ -33,9 +33,6 @@ export default function TestApp3({}) {
             Web developer/designer and linux enthusiast{" "}
           </p>
           <div className="flex gap-4 mt-2">
-            <a target="_blank" href="https://t.me/LinuxChats">
-              <FaTelegramPlane size={25}></FaTelegramPlane>
-            </a>
             <a href="#">
               {/* TBD */}
               <FaLinkedin size={25}></FaLinkedin>
@@ -43,9 +40,6 @@ export default function TestApp3({}) {
             <button onClick={() => setModal(true)}>
               <IoMdMail size={25} />
             </button>
-            <a target="_blank" href="https://lemmy.world/u/Presi300">
-              <SiLemmy size={25}></SiLemmy>
-            </a>
             <a target="_blank" href="https://github.com/presi300">
               <FaGithub size={25} />
             </a>
