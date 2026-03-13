@@ -1,5 +1,7 @@
 # Presi300.com - A website
 
+# This branch exists for me to test building/deploying this site with nix
+
 ## Yeah, it's my personal website...
 
 ### Yes, it is a MacOS clone made in JS... ish
