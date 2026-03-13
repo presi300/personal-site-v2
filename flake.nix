@@ -36,7 +36,7 @@
     in {
       # 2. Define the DOCKER IMAGE
       packages.${system}.default = pkgs.dockerTools.buildLayeredImage {
-        name = "next-app-docker";
+        name = "personal-site-v2";
         tag = "latest";
         contents = [ pkgs.bun pkgs.bash ]; # Standard environment
         
