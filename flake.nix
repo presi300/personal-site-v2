@@ -1,41 +1,40 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    bun2nix = {
+      url = "github:nix-community/bun2nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  #yes, I am vibecoding ts, you try finding documentation for building nextjs with nix
-
-  outputs = { self, nixpkgs }:
+  outputs = { self, nixpkgs, bun2nix }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-
-      nextApp = pkgs.stdenv.mkDerivation {
-        pname = "personal-site-v2";
+      bun2nix-lib = bun2nix.packages.${system}.default;
+    in {
+      packages.${system}.default = bun2nix-lib.mkDerivation {
+        pname = "next-app";
         version = "1.0.0";
         src = ./.;
-        nativeBuildInputs = [ pkgs.bun ];
+
+        # 1. This tells Nix exactly what to download based on your bun.nix
+        bunDeps = bun2nix-lib.fetchBunDeps {
+          bunNix = ./bun.nix;
+          src = ./.;
+        };
+
+        # 2. Build instructions
+        # Note: bun2nix-lib.mkDerivation handles 'bun install' for you!
         buildPhase = ''
           export HOME=$TMPDIR
-          bun install --frozen-lockfile
           bun run build
         '';
+
         installPhase = ''
           mkdir -p $out
           cp -r .next public package.json node_modules $out/
         '';
-      };
-
-    in {
-      packages.${system}.default = pkgs.dockerTools.buildLayeredImage {
-        name = "personal-site-v2";
-        tag = "latest";
-        contents = [ pkgs.bun pkgs.bash pkgs.coreutils ];
-        config = {
-          Cmd = [ "${pkgs.bun}/bin/bun" "run" "start" ];
-          WorkingDir = "${nextApp}";
-          ExposedPorts = { "3000/tcp" = {}; };
-        };
       };
     };
 }
