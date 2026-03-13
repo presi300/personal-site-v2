@@ -1,13 +1,24 @@
 import { ThemeProvider } from "next-themes";
 import "../styles/globals.css";
 import { EventEmitter } from "events";
-import { Poppins } from "next/font/google";
+import localFont from 'next/font/local'
 
 EventEmitter.defaultMaxListeners = 20;
 
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+const poppins = localFont({
+  src: [
+    {
+      path: './fonts/poppins-400.woff2',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: './fonts/poppins-700.woff2',
+      weight: '700',
+      style: 'normal',
+    },
+    
+  ],
 });
 
 function MyApp({ Component, pageProps }) {
