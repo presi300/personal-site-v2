@@ -12,29 +12,39 @@
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
       bun2nix-lib = bun2nix.packages.${system}.default;
-    in {
-      packages.${system}.default = bun2nix-lib.mkDerivation {
+
+      # 1. Define the APP build
+      nextApp = bun2nix-lib.mkDerivation {
         pname = "next-app";
         version = "1.0.0";
         src = ./.;
-
-        # 1. This tells Nix exactly what to download based on your bun.nix
         bunDeps = bun2nix-lib.fetchBunDeps {
           bunNix = ./bun.nix;
           src = ./.;
         };
-
-        # 2. Build instructions
-        # Note: bun2nix-lib.mkDerivation handles 'bun install' for you!
         buildPhase = ''
           export HOME=$TMPDIR
+          export NEXT_TELEMETRY_DISABLED=1
           bun run build
         '';
-
         installPhase = ''
-          mkdir -p $out
-          cp -r .next public package.json node_modules $out/
+          mkdir -p $out/share/next-app
+          cp -r .next public package.json node_modules $out/share/next-app/
         '';
+      };
+
+    in {
+      # 2. Define the DOCKER IMAGE
+      packages.${system}.default = pkgs.dockerTools.buildLayeredImage {
+        name = "next-app-docker";
+        tag = "latest";
+        contents = [ pkgs.bun pkgs.bash ]; # Standard environment
+        
+        config = {
+          Cmd = [ "${pkgs.bun}/bin/bun" "run" "start" ];
+          WorkingDir = "${nextApp}/share/next-app";
+          ExposedPorts = { "3000/tcp" = {}; };
+        };
       };
     };
 }
